@@ -1,0 +1,59 @@
+
+package ejemplo;
+import java.io.*;
+import java_cup.runtime.*; 
+
+parser code
+{:
+	public static void main(String args[]) throws Exception{
+		//new parser(new Yylex(new FileInputStream(args[0]))).parse();
+		new parser(new Yylex(System.in)).parse();
+	}
+	public void syntax_error(Symbol s){
+		report_error("Error de sintaxis. Linea: " + (s.right + 1) +
+		" Columna: " + s.left + ". Texto: \"" + s.value + "\"", null);
+	}
+:}
+
+terminal String EXISTE, PARATODO, NEGACION, DISYUNCION, CONJUNCION, IMPLICACION, IDVAR, IDFUNC, IDPRED, PA, PC, COMA;
+
+non terminal listaSentencia, comienzo, cond, disy, conj, factor, pred, listaTerm, term;
+
+
+listaSentencia ::= listaSentencia comienzo {: //para realizar varios analisis en una misma ejecución; :}
+		| comienzo
+		;
+		
+comienzo := cond {: //para realizar acciones al principio; System.out.println("Sentencia analizada correctamente. Sin errores.");:}
+		| error {: System.out.println("Error sintactico en la sentencia"); :}
+		;
+
+cond ::= disy IMPLICACION cond 
+		| disy
+		;
+
+disy ::= conj DISYUNCION disy 
+		| disy
+		;
+	
+conj ::= factor CONJUNCION conj 
+		| factor {: //factor se llama a una unidad cuantificada o negada; :} 
+		;
+	
+factor ::= PARATODO IDVAR factor 
+		| EXISTE IDVAR factor 
+		| NEGACION factor 
+		| PA cond PC 
+		| pred
+		;
+	
+pred ::= IDPRED PA listaTerm PC{://listaTerm representa una lista de términos:} 
+		;	
+
+listaTerm ::= term 
+		| listaTerm COMA term
+		;
+
+term ::= IDVAR 
+		| IDFUNC PA listaTerm PC
+		;

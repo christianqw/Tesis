@@ -1,0 +1,222 @@
+ 
+   
+/* ---------------Seccion de declaraciones preliminares--------------------*/
+package ejemplocup;
+
+/* Import the class java_cup.runtime.*  */
+import java_cup.runtime.*;
+import java.io.FileReader;
+import java.util.Stack;
+  
+/* Codigo adicional, se copia integramente a la clase no publica que 
+    engloba a todas las acciones semánticas especificadas por el usuario
+    (esta clase es declarada dentro del archivo de parser.java). */
+action code {: 
+		/*
+		 En este bloque pueden declararse variables, funciones, etc. todas de tipo
+		estático ya que no existen objetos accesibles mediante los que referenciar 
+		componentes no estáticos. 
+		Todo lo que se declare en este bloque será accesible a las acciones 
+		semánticas.
+		*/
+:};   
+  
+/* Codigo del parser, se copia integramente a la clase final.
+    Agregamos el manejo de errores. */
+parser code {:
+    
+    /* Reporte de error encontrado. */
+    public void report_error(String message, Object info) {
+        StringBuilder m = new StringBuilder("Error");
+        if (info instanceof java_cup.runtime.Symbol) {
+            java_cup.runtime.Symbol s = ((java_cup.runtime.Symbol) info);
+            if (s.left >= 0) {                
+                m.append(" in line "+(s.left+1));
+                if (s.right >= 0)
+                    m.append(", column "+(s.right+1));
+            }
+        }
+        m.append(" : "+message);
+        System.err.println(m);
+		//return 0; 
+    }
+   
+    /* Cuando se encuentra un error de donde el sistema no puede
+        recuperarse, se lanza un error fatal. Se despliega el mensaje
+        de error y se finaliza la ejecucion. */
+    public void report_fatal_error(String message, Object info) {
+        report_error(message, info);
+		System.out.print(" Error Fatal ");
+		report_error(message, info);
+        //return 0;
+    }
+
+    /* Metodo main para garantizar la ejecucion del analizador
+       lexico y sintactico, ademas que se pase como parametro la tabla
+       de simbolos correspondiente. */
+    public static void main(String[] args){
+        try {
+            AnalizadorSintactico asin = new AnalizadorSintactico(
+                    new AnalizadorLexico( new FileReader(args[0])));
+            Object result = asin.parse().value;
+            System.out.println("\n*** Resultados finales ***");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+	
+	 private Stack<String> pila = new Stack<String>(); 
+	 private String Solucion; 
+:};
+   
+
+   
+/* ------------Declaracion de simbolos terminales y no terminales---------- */
+   
+/* Terminales (tokens obtenidos por el analizador lexico).  
+
+   Terminales que no tienen un valor son listados primero, los terminales que
+   tienen un valor como los identificadores son listados en la segunda o demas lineas. */
+
+terminal EXISTE, PARATODO, NEGACION, DISYUNCION, CONJUNCION, IMPLICACION, PA, PC, COMA;
+terminal String  IDVAR, IDFUNC, IDPRED, ERROR;
+   
+/* No terminales usados en la seccion gramatical. 
+
+   Primero se lista los no terminales que tienen un valor Object y despues
+   se lista los no terminales que tienen un entero. Un Object se refiere a que
+   no tienen tipo, pudiendo ser entero o String. */
+   
+non terminal Object		comienzo, cond, disy, conj, factor, pred, listaTerm, term;
+   
+
+/* -------------Seccion de predencia y asociacion de los terminales----------- */
+   
+/*
+  Precedencia de los no terminales, no sirve con simbolos terminales.
+  Por eso no la usamos. Además indica si se asocia a izquierda o derecha.
+*/
+  /*precedence left DISYUNCION, CONJUNCION; 
+    precedence left IMPLICACION;*/
+
+/* ------------------- Seccion de la gramatica ------------------------ */
+   
+/* 
+La gramatica de nuestro analizador.
+   
+comienzo := cond 
+		;
+cond ::= disy IMPLICACION cond 
+		| disy
+		;
+disy ::= conj DISYUNCION disy 
+		| conj
+		;
+conj ::= factor CONJUNCION conj 
+		| factor  
+		;
+factor ::= PARATODO IDVAR factor 
+		| EXISTE IDVAR factor 
+		| NEGACION factor 
+		| PA cond PC 
+		| pred
+		;
+pred ::= IDPRED PA listaTerm PC 
+		;	
+listaTerm ::= term 
+		| listaTerm COMA term
+		;
+term ::= IDVAR 
+		| IDFUNC PA listaTerm PC
+		;   
+*/
+   
+/* 
+   Un terminal o no terminal se define <termino> ::= termino1 termino2 ... terminoN.
+   donde termino puede ser terminal o no terminal, solo se permite un simbolo a la
+   izquierda. La | sirve para indicar que es una produccion u otra.
+   Debemos pasar de simbolos no terminales a simbolos terminales. Una gramatica que no
+   termina en simbolos terminales se dice que no reduce, y por lo tanto nunca se finaliza
+   su procesado.
+*/
+
+/* 
+	'comienzo' es la raiz de la gramatica. Es declarado de esta forma en caso de tener que realizar acciones al principio de la generacion. 
+	En caso de reconocer mas de una sentencia por vez se tiene que incorporar una regla del estilo: 
+		listaSentencia ::= listaSentencia comienzo 
+		| comienzo
+		;
+		
+*/   
+comienzo ::= cond {: //Asignamos la solucion
+					Solucion = pila.pop();
+					//Mostramos que quedo formado
+					System.out.print(Solucion);
+					:}
+		| ERROR {: System.out.print(" REconoce error Lexico ");:}
+		;
+/* 
+   <noTerminal>:a esta estableciendo que 'a' representa al objeto asociado al <noTerminal>, para que el mismo pueda ser utilizado entre {: //codigo Java :}
+   - se coloca el codigo en java para las acciones a tomar al cumplirse una produccion.
+*/
+cond ::= cond IMPLICACION disy {: /*desapilamos 2 apilamos 1 nuevo*/
+								aux = pila.pop();
+								pila.push(pila.pop()+"->"+aux);
+								:}
+		| disy {:/*No se hace nada*/
+				:}
+		;
+                  
+/* 	'disy' puede ser */              
+disy ::= disy DISYUNCION conj {: /*desapilamos 2 apilamos 1 nuevo*/
+								aux = pila.pop();
+								pila.push(pila.pop()+"OR"+aux);
+								:}
+		| conj {:/*No se hace nada*/
+				:}
+		;
+
+conj ::= conj CONJUNCION factor{: /*desapilamos 2 apilamos 1 nuevo*/
+								aux = pila.pop();
+								pila.push(pila.pop()+"AND"+aux);
+								:}
+		| factor {: /* factor se llama a una unidad cuantificada o negada;*/:} 
+		;
+/*	factor. Se denomina factor a una unidad cuantificada o negada; */	
+factor ::= PARATODO:par IDVAR:idv factor {: /*desapilo, modifico y apilo*/
+								pila.push(par+idv+pila.pop());
+								:}
+		| EXISTE:ex IDVAR:idv factor {: /*desapilo, modifico y apilo*/
+								pila.push(ex+idv+pila.pop());
+								:}
+		| NEGACION:n factor {: /*desapilo, modifico y apilo*/
+								pila.push(n+pila.pop());
+								:}
+		| PA:a cond PC:c  {: /*desapilo, modifico y apilo*/
+								pila.push(a+pila.pop()+c);
+								:}
+		| pred {:/*No se hace nada*/
+				:}
+		;
+/*listaTerm representa una lista de términos*/
+pred ::= IDPRED:idp PA:a listaTerm PC:c {: /*desapilo, modifico y apilo*/
+								pila.push(idp+a+pila.pop()+c);
+								:}
+		;	
+
+/*   listaTerm representa una lista de términos utilizada dentro de los parentesis de un predicado o funcion. */
+listaTerm ::= term {:/*No se hace nada*/
+					:}
+		| listaTerm COMA term{: /*desapilo, modifico y apilo*/
+								aux = pila.pop();
+								pila.push(pila.pop()+","+aux);
+								:}
+		;
+
+term ::= IDVAR:idv {: /*Apilamos*/
+					pila.push(idv);
+					:} 
+		| IDFUNC:idf PA:a listaTerm PC:c{: /*desapilo, modifico y apilo*/
+								pila.push(idf+a+pila.pop()+c);
+								:}
+		;

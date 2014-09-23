@@ -1,0 +1,37 @@
+//----------------------------------------------
+//Gramatica con los acacteres en lugar de Tokens
+//Estructura clasica de la gramatica definida.
+//Documentacion. Base sobre lo que se define la utilizada en CUP
+//-----------------------------------------------
+
+comienzo := cond //para realizar acciones al principio
+
+cond ::= disy -> cond 
+		| disy
+		;
+
+disy ::= conj OR disy 
+		| disy
+		;
+	
+conj ::= factor AND conj 
+		| factor //factor se llama a una unidad cuantificada o negada
+		;
+	
+factor ::=PARATODO IDVAR factor 
+		| EXISTE IDVAR factor 
+		| ¬ factor 
+		| ( cond ) 
+		| pred
+		;
+	
+pred ::= IDPRED ( listaTerm )//listaTerm representa una lista de términos
+		;	
+
+listaTerm ::= term 
+		| terms , term
+		;
+
+term ::= IDVAR 
+		| IDFUNC ( terms )
+		;

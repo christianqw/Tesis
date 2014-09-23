@@ -1,0 +1,6 @@
+
+        try {
+            parser p = new parser(new Yylex(new java.io.FileInputStream("D:\\Ejemplo\\entrada.txt")));
+            p.parse();
+        }
+        catch(Exception e) { System.out.println(e.getMessage());}
