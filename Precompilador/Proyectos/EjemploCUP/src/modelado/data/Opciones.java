@@ -6,6 +6,7 @@
 
 package modelado.data;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 /**
@@ -14,16 +15,20 @@ import java.util.Set;
  */
 public class Opciones {
     
-    private Set<String> _opciones;
+    private ArrayList<String> _opciones;
     private String _clave;
 
-    public Opciones(Set<String> _opciones, String _clave) {
-        this._opciones = _opciones;
-        this._clave = _clave;
+    public Opciones(ArrayList<String> opciones, String clave) {
+        this._opciones = opciones;
+        this._clave = clave;
     }
     
     public boolean contains(String name){
          return this._opciones.contains(name);
+    }
+    
+    public boolean contains(int index){
+         return (index < this._opciones.size());
     }
     
     public boolean add(String name){
@@ -40,5 +45,13 @@ public class Opciones {
     }
     public void setClave(String name){
         this._clave = name; 
+    }
+
+    String getNameValue(int pos) {
+        return this._opciones.get(pos);
+    }
+
+    int getValue(String name) {
+        return this._opciones.indexOf(name);
     }
 }
