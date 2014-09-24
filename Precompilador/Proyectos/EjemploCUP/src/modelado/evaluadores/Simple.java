@@ -4,14 +4,26 @@
  * and open the template in the editor.
  */
 
-package modelado.data;
+package modelado.evaluadores;
 
 /**
  *
  * @author Chris
  */
-public class Igual extends Comparacion{
+public class Simple extends Evaluador{
+    /*
+    Evaluador que utiliza un valor de un determinado atributo previamente definido
+    los predicados definidos de forma automatica utilizan este tipo de evaluador.
+    */
+    
+    private String _att;
+    private String _value;
 
+    public Simple(String atributo, String valor) {
+        this._att = atributo;
+        this._value = valor;
+    }
+    
     @Override
     public boolean evaluar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -21,6 +33,6 @@ public class Igual extends Comparacion{
     public String toString() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
+   
 }

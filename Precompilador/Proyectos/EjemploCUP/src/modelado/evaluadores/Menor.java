@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package modelado.data;
+package modelado.evaluadores;
 
 /**
  *
  * @author Chris
  */
-public class Mayor {
+public class Menor {
     
 }

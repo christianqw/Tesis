@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
-package modelado.data;
+package modelado.evaluadores;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -13,8 +15,6 @@ package modelado.data;
 public abstract class Evaluador {
     
     private int _numParametros;
-    
-    public abstract boolean evaluar();
 
     public int getNumParametros() {
         //se declara de esta forma para que el numero de parametros a retornar sea
@@ -28,5 +28,7 @@ public abstract class Evaluador {
     
     @Override
     public abstract String toString();
+
+     public abstract boolean evaluar(ArrayList<String> elementos);
      
 }
