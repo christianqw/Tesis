@@ -23,10 +23,12 @@ public class Modelo {
     //Los elementos del dominio comparten la misma estructura en comun. 
     private Estructura _estructura;
     
-    //posee un conjunto con los diferentes elementos que estan definidos
+    //posee un mapa con los diferentes elementos que estan definidos
     //dentro del modelo.
     private HashMap<String, Elemento> _dominio; 
     
+    //posee un mapa en el que estan listados los predicados que el modelo 
+    //reconoce.
     private HashMap<String, Evaluador> _evalPredicados;
     
     //Constructor de la clase, es necesario definir mediante la estructura
@@ -84,12 +86,16 @@ public class Modelo {
     }
     boolean eliminarElemento(String name){
         if (dominioContiene(name)){
-            return (this._dominio.remove(this._dominio.get(name)));
+            this._dominio.remove(name);
+            return true;
         }
-        else 
-            return false;
+        else return false;
     }
-    void renombrarElemento(String name, String newname){
+    boolean renombrarElemento(String name, String newname){
+        if (dominioContiene(name)){
+            return true;
+        }
+        else return false;
     }
     
     // -- MANEJO DE PREDICADOS
@@ -103,7 +109,7 @@ public class Modelo {
         return this._dominio.isEmpty();
     }
     boolean dominioContiene(String name){
-        return this._dominio.contains(name);        
+        return this._dominio.containsKey(name);        
     }
     
     
@@ -116,7 +122,8 @@ public class Modelo {
     }
     boolean setPosicion(String name, int x, int y){
         if (this.dominioContiene(name)){
-            Iterator<Elemento> aux = this._dominio.iterator(name);
+            Elemento aux = this._dominio.get(name);
+            aux.setPosicion( x, y);
             return true;
         }
         return false;
