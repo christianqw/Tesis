@@ -6,7 +6,6 @@ package estructuraLogica;
 
 import java.util.HashMap;
 import modelado.Modelo;
-import modelado.Error;
 
 /**
  *
@@ -14,20 +13,20 @@ import modelado.Error;
  */
 public class Negacion implements Formula{
 
-    private Formula elem;
+    private final Formula _elem;
 
     public Negacion(Formula elem) {
-        this.elem = elem;
+        this._elem = elem;
     }
     
     @Override
     public boolean verificar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
-        return (! elem.verificar(m, instancia, e));
+        return (! this._elem.verificar(m, instancia, e));
     }
 
     @Override
     public String toString() {
-        return "Negacion{" + "elem=" + elem + '}';
+        return "Negacion{" + "elem=" + this._elem + '}';
     }
     
 }

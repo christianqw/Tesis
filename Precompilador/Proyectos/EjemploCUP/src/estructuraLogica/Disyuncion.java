@@ -6,14 +6,13 @@ package estructuraLogica;
 
 import java.util.HashMap;
 import modelado.Modelo;
-import modelado.Error;
 /**
  *
  * @author Chris
  */
 public class Disyuncion implements Formula{
 
-    private Formula der, izq;
+    private final Formula der, izq;
 
     public Disyuncion(Formula der, Formula izq) {
         this.der = der;

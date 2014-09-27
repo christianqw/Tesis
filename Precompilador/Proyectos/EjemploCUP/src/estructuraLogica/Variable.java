@@ -14,30 +14,39 @@ import modelado.*;
  */
 public class Variable extends Termino{
 
-    private String id;
+    private final String _id;
     
+    @Override
     public String evaluar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
-        String temp = this.id;
         
-        //verifica si la variable existe en la instacia
-        if (instancia.containsKey(this.id))
-            temp = instancia.get(this.id);
-        //verifica en el dominio
-        Collection dominio = m.getDominio();
-        if (!dominio.contains(temp)){
-            e.setError(modelado.Error.tipoError.VARLIBRE, temp);
+        String name_elem = this._id;
+        
+        /*verifica si la variable existe en la instacia, 
+        si la variable ya fue instanciada por algun cuantificador
+        */
+        if (instancia.containsKey(this._id))
+            name_elem = instancia.get(this._id);
+        /*verifica en el dominio
+        si existe dentro del dominio un elemento con ese nombre,
+        puede ocurrir que la variable sea una instancia de la 
+        tabla o una constante definida dentro de la formila. 
+        */
+        if (m.dominioContiene(name_elem))
+            return name_elem;
+        else {
+            //no existe un elemento con el nombre dentro del dominio. 
+            e.setError(modelado.Error.tipoError.VARLIBRE, name_elem);
             return "";
-        }   
-        return temp;
+        }
     }
 
     public Variable(String id) {
-        this.id = id;
+        this._id = id;
     }
 
     @Override
     public String toString() {
-        return "Variable{" + "id=" + id + '}';
+        return "Variable{" + "id=" + this._id + '}';
     }    
     
 }

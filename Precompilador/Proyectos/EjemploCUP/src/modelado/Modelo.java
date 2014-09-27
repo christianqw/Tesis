@@ -7,10 +7,11 @@ package modelado;
 import modelado.data.Atributo;
 import modelado.data.Estructura;
 import java.util.ArrayList;
-import java.util.Collection;
+//import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
+//import java.util.Iterator;
+//import java.util.Set;
 import modelado.evaluadores.Evaluador;
 
 /**
@@ -108,11 +109,14 @@ public class Modelo {
     boolean dominioVacio(){
         return this._dominio.isEmpty();
     }
-    boolean dominioContiene(String name){
+    public boolean dominioContiene(String name){
         return this._dominio.containsKey(name);        
     }
     
-    
+    public Set<String> getListaElementos(){
+        return this._dominio.keySet();
+    }
+
     // -- MODIFICACION DE ELEMENTOS
     boolean setAtributo (String name, Atributo value){
         if (this.dominioContiene(name)){

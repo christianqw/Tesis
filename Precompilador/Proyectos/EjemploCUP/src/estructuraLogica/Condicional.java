@@ -6,7 +6,6 @@ package estructuraLogica;
 
 import java.util.HashMap;
 import modelado.Modelo;
-import modelado.Error;
 
 /**
  *
@@ -14,28 +13,32 @@ import modelado.Error;
  */
 public class Condicional implements Formula{
 
-    private Formula der, izq;
+    private final Formula _der, _izq;
 
     public Condicional(Formula der, Formula izq) {
-        this.der = der;
-        this.izq = izq;
+        this._der = der;
+        this._izq = izq;
     }
     
+    /*Realizar la verificacion de una implicacion
+    La instancia es modificada unicamente cuando se realiza la
+    verificacion de un cunatificador 
+    */
     @Override
     public boolean verificar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
-        boolean rIzq = izq.verificar(m, instancia, e);
+        boolean rIzq = this._izq.verificar(m, instancia, e);
         if (e.getTipoError()!= modelado.Error.tipoError.SINERROR)
             return false;
-        boolean rDer = der.verificar(m, instancia, e);
+        boolean rDer = this._der.verificar(m, instancia, e);
         if (e.getTipoError()!= modelado.Error.tipoError.SINERROR)
             return false;
-        return (!rIzq || rDer);
+        return (!rIzq || rDer); /*return ¬P v Q*/
         
     }
 
     @Override
     public String toString() {
-        return "Condicional{" + "der=" + der + ", izq=" + izq + '}';
+        return "Condicional{" + "der=" + this._der + ", izq=" + this._izq + '}';
     }
        
 }

@@ -6,9 +6,6 @@ package estructuraLogica;
 
 import modelado.Modelo;
 import java.util.HashMap;
-import modelado.Error;
-
-
 /**
  *
  * @author Chris

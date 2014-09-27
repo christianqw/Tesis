@@ -14,44 +14,57 @@ import modelado.Modelo;
  */
 public class Funcion extends Termino{
     
-    private String id;
-    private ArrayList<Termino> terminos;
+    private final String _id;
+    private ArrayList<Termino> _terminos;
 
+    /**
+     *
+     * @param id
+     */
     public Funcion(String id) {
-        this.id = id;
+        this._id = id;
     }
 
     public Funcion(String id, ArrayList<Termino> terminos) {
-        this.id = id;
-        this.terminos = terminos;
+        this._id = id;
+        this._terminos = terminos;
     }
 
     public void AgregarTermino(Termino t){
-        this.terminos.add(t);
+        this._terminos.add(t);
     }
     
     @Override
+    @SuppressWarnings("empty-statement")
     public String evaluar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
-       ArrayList<String> consulta = new ArrayList<String>();
+       ArrayList<String> parametros = new ArrayList();
+       
+       /* definicion de los parametros de la función 
+       Se realiza una busqueda de los diferenetes parametros 
+       para poder hacer la correspondiente evaluacion */
        int cont = 0;
-       while (cont < this.terminos.size() && e.getTipoError()== modelado.Error.tipoError.SINERROR){
-            consulta.add(this.terminos.get(cont).evaluar(m, instancia, e));
+       while (cont < this._terminos.size() && e.getTipoError()== modelado.Error.tipoError.SINERROR){
+            parametros.add(this._terminos.get(cont).evaluar(m, instancia, e));
             cont++;
        };
        
        String res;
        if (e.getTipoError() == modelado.Error.tipoError.SINERROR){
-           res = m.evaluarFuncion(this.id, consulta, e);
-           if (e.getTipoError() != modelado.Error.tipoError.SINERROR)
-               res = "";
-       }else res = "";
+           res = m.evaluarFuncion(this._id, parametros, e);
+           if (e.getTipoError() != modelado.Error.tipoError.SINERROR){
+               res = ""; 
+               /*"evaluarFuncion"1 retorna ' ' pero para una mayor 
+               consistencia se le asigna el resultado de error de 
+               forma explicita.*/
+           }
+       } else res = "";
     
        return res;
     }
 
     @Override
     public String toString() {
-        return "Funcion{" + "id=" + id + ", terminos=" + terminos + '}';
+        return "Funcion{" + "id=" + this._id + ", terminos=" + this._terminos + '}';
     }
 
 }
