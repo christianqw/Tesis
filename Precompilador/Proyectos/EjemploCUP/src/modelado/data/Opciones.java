@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class Opciones {
     
-    private ArrayList<String> _opciones;
+    private final ArrayList<String> _opciones;
     private String _clave;
 
     public Opciones(ArrayList<String> opciones, String clave) {

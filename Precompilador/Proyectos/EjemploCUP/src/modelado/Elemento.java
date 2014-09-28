@@ -6,14 +6,30 @@
 
 package modelado;
 
+import java.util.HashMap;
+import modelado.data.Atributo;
+
 /**
  *
  * @author Chris
  */
 public class Elemento {
+    
+    private HashMap<String, Atributo> _atributos;
+    private int _posx, _posy;
+    private String _name;
 
     void setPosicion(int x, int y) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this._posx = x;
+        this._posy = y;
+    }
+    
+    void setNombre(String name){
+        this._name= name;
+    }
+
+    public int getvalue(String nameAtributo) {
+        return _atributos.get(nameAtributo).getValue();
     }
     
     

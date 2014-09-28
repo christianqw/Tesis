@@ -7,11 +7,8 @@ package modelado;
 import modelado.data.Atributo;
 import modelado.data.Estructura;
 import java.util.ArrayList;
-//import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
-//import java.util.Iterator;
-//import java.util.Set;
 import modelado.evaluadores.Evaluador;
 
 /**
@@ -103,6 +100,7 @@ public class Modelo {
     boolean evaluarPred(String predicado, ArrayList<String> elementos){
        return _evalPredicados.get(predicado).evaluar(elementos);
     }
+    
     String evaluarFunc(String predicado, ArrayList<String> elementos){
         return "";
     }
