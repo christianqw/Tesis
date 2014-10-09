@@ -5,11 +5,11 @@
 package modelado;
 
 import modelado.data.Atributo;
-import modelado.data.Estructura;
+import modelado.data.EstructuraElemento;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-import modelado.evaluadores.Evaluador;
+import modelado.evaluadores.Constructor;
 
 /**
  *
@@ -19,19 +19,19 @@ public class Modelo {
     
     //Estructur que define los distintos elementos que conforman al Modelo.
     //Los elementos del dominio comparten la misma estructura en comun. 
-    private Estructura _estructura;
+    private EstructuraElemento _estructura;
     
     //posee un mapa con los diferentes elementos que estan definidos
-    //dentro del modelo.
+    //dentro del modelo. NUESTRO DOMINIO
     private HashMap<String, Elemento> _dominio; 
     
-    //posee un mapa en el que estan listados los predicados que el modelo 
-    //reconoce.
-    private HashMap<String, Evaluador> _evalPredicados;
+    //posee un contructor de predicados que es utilizado para definir los 
+    //predicados que el modelo reconoce y sus respectivas caracteristicas.
+    private Constructor _defPredicados;
     
     //Constructor de la clase, es necesario definir mediante la estructura
     // que atributos poseen los distintos elenemtos que confroman el modelo
-    public Modelo(Estructura estruc) {
+    public Modelo(EstructuraElemento estruc) {
         this._estructura = estruc; 
    }
     
@@ -45,18 +45,8 @@ public class Modelo {
             error.setError(Error.tipoError.NOEXISTEP, "No Existe la funcion "+ id);
             return "";
         } else
-            if (!aridadFuncionCorrecta(id, parametros)){
-                error.setError(Error.tipoError.ARIDAD, "Cantidad de paramentros incorrecta dentro de " + id);
-                return "";
-            } else 
-                return evaluarFunc(id, parametros);
+            return evaluarFunc(id, parametros);
     }
-    
-    /* public Collection<String> getDominio(){
-        //Verificar en que lugares se utiliza esto.
-        return this._dominio;
-    }
-    */
     
     public boolean verificarPredicado (String id, ArrayList<String> parametros, Error error){
         if (dominioVacio()){
@@ -67,14 +57,13 @@ public class Modelo {
             error.setError(Error.tipoError.NOEXISTEP, "No Existe el predicado "+ id);
             return false;
         } else
-            if (!aridadCorrecta(id, parametros)){
-                error.setError(Error.tipoError.ARIDAD, "Cantidad de paramentros incorrecta dentro de " + id);
-                return false;
-            } else 
-                //Llegando a este punto, este predicado no posee ningun tipo de error
-                return evaluarPred(id, parametros);
+            //Llegando a este punto, este predicado no posee ningun tipo de error
+            return evaluarPred(id, parametros);
     }
-    boolean agregarElemento(String name, Elemento elem){
+    
+    // -- MODIFICACION DE ELEMENTOS
+    
+    private boolean agregarElemento(String name, Elemento elem){
         if (!dominioContiene(name)){
             this._dominio.put(name, elem);
             return true;
@@ -82,40 +71,20 @@ public class Modelo {
         else 
             return false;
     }
-    boolean eliminarElemento(String name){
+    private boolean eliminarElemento(String name){
         if (dominioContiene(name)){
             this._dominio.remove(name);
             return true;
         }
         else return false;
     }
-    boolean renombrarElemento(String name, String newname){
+    private boolean renombrarElemento(String name, String newname){
         if (dominioContiene(name)){
             return true;
         }
         else return false;
     }
-    
-    // -- MANEJO DE PREDICADOS
-    boolean evaluarPred(String predicado, ArrayList<String> elementos){
-       return _evalPredicados.get(predicado).evaluar(elementos);
-    }
-    
-    String evaluarFunc(String predicado, ArrayList<String> elementos){
-        return "";
-    }
-    boolean dominioVacio(){
-        return this._dominio.isEmpty();
-    }
-    public boolean dominioContiene(String name){
-        return this._dominio.containsKey(name);        
-    }
-    
-    public Set<String> getListaElementos(){
-        return this._dominio.keySet();
-    }
 
-    // -- MODIFICACION DE ELEMENTOS
     boolean setAtributo (String name, Atributo value){
         if (this.dominioContiene(name)){
             return true;
@@ -131,17 +100,46 @@ public class Modelo {
         return false;
     }
 
-    private boolean aridadCorrecta(String id, ArrayList<String> parametros) {
-        return (_evalPredicados.get(id).getNumParametros() == parametros.size());
+    // -- MANEJO DE PREDICADOS
+    
+    /* public Collection<String> getDominio(){
+        //Verificar en que lugares se utiliza esto.
+        return this._dominio;
+    }
+    */
+    
+    private boolean evaluarPred(String predicado, ArrayList<String> elementos){
+        return _defPredicados.getPredicado(predicado, transformaPAramentros(elementos)).evaluar();
+    }
+    
+    String evaluarFunc(String predicado, ArrayList<String> elementos){
+        return "";
+    }
+    
+    private ArrayList<Elemento> transformaPAramentros( ArrayList<String> elementos){
+        return null;
+    }
+    
+    private boolean dominioVacio(){
+        return this._dominio.isEmpty();
+    }
+    
+    public boolean dominioContiene(String name){
+        return this._dominio.containsKey(name);        
+    }
+    
+    public Set<String> getListaElementos(){
+        return this._dominio.keySet();
+    }
+    public boolean aridadPredicadoCorrecta(String id, int parametros) {
+        return _defPredicados.cantidadParametrosCorrectos(id, parametros);
     }
 
     private boolean existeIdPredicado(String id) {
-        //engloba la consulta de si existe la funcion a analizar o existe
-        //el predicado a analizar, el comportamiento es igual para las 2 alternativas
-        return this._evalPredicados.containsKey(id);
+        return this._defPredicados.existeId(id);
     }
-
-    private boolean aridadFuncionCorrecta(String id, ArrayList<String> parametros) {
+    
+    public boolean aridadFuncionCorrecta(String id, int parametros) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

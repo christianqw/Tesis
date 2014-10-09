@@ -40,6 +40,10 @@ public class Error {
         this._identificador = identificador;
     }
     
+    public boolean notError(){
+        return this._tipo_de_error.equals(tipoError.SINERROR);
+    }
+    
     @Override
     public String toString() {
         return "Estado de la var_Error{" + _tipo_de_error+ ", Mensaje de error = " + _identificador + '}';

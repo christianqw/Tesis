@@ -33,22 +33,28 @@ public class Predicado implements Formula{
     @Override
     public boolean verificar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
         ArrayList<String> consulta = new ArrayList<String>();
-        
-        //primero busca las distintas variables intervinientes (pueden ser resultados de funciones)
-        int cont = 0;
-        while (cont < this._terminos.size() && e.getTipoError() == modelado.Error.tipoError.SINERROR){
-            consulta.add(this._terminos.get(cont).evaluar(m, instancia, e));
-            cont++;
-        }
-        
-        //realizamos la verificacion y la evaluacion del predicado dentro del modelo en cuestion
         boolean res = true; 
-        if (e.getTipoError()!= modelado.Error.tipoError.SINERROR)
-            res = false; 
-        else {
-            res = m.verificarPredicado(this._id, consulta, e);
-            if (e.getTipoError()!=modelado.Error.tipoError.SINERROR)
+        //En este momento es posible realizar la verificacion de error de cantidad de paramentros.
+        if (!m.aridadPredicadoCorrecta(this._id, this._terminos.size())){
+                e.setError(modelado.Error.tipoError.ARIDAD, "Cantidad de paramentros incorrecta dentro de " + this._id);
                 res = false;
+            } else{ 
+            //primero busca las distintas variables intervinientes (pueden ser resultados de funciones)
+            int cont = 0;
+            while (cont < this._terminos.size() && e.notError()){
+                consulta.add(this._terminos.get(cont).evaluar(m, instancia, e));
+                cont++;
+            }
+
+            //realizamos la verificacion y la evaluacion del predicado dentro del modelo en cuestion
+            
+            if (!e.notError())
+                res = false; 
+            else {
+                res = m.verificarPredicado(this._id, consulta, e);
+                if (e.getTipoError()!=modelado.Error.tipoError.SINERROR)
+                    res = false;
+            }
         }
         return res;
     }

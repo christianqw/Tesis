@@ -14,16 +14,37 @@ import java.util.ArrayList;
  */
 public class EstructuraPredicado {
 
+    private ArrayList<String> _listaClaves, _listaAtributos;
+    private ArrayList<Integer> _listaParametros;
+    private int _cantidadParametros;
+    private String _id;
+
+    public EstructuraPredicado(ArrayList<String> _listaClaves, ArrayList<String> _listaAtributos, ArrayList<Integer> _listaParametros, int _cantidadParametros, String _id) {
+        this._listaClaves = _listaClaves;
+        this._listaAtributos = _listaAtributos;
+        this._listaParametros = _listaParametros;
+        this._cantidadParametros = _cantidadParametros;
+        this._id = _id;
+    }
+    
     public ArrayList<String> getListaClaves() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this._listaClaves;
     }
 
     public ArrayList<Integer> getListaParam() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this._listaParametros;
     }
 
     public ArrayList<String> getListaAtributos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return this._listaAtributos;
     }
     
+    public int getCantidadParametros(){
+        return this._cantidadParametros;
+    }
+
+    public String getId() {
+        return this._id;
+    }
+
 }

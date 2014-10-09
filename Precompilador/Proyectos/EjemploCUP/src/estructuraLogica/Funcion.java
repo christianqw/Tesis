@@ -39,25 +39,30 @@ public class Funcion extends Termino{
     public String evaluar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
        ArrayList<String> parametros = new ArrayList();
        
-       /* definicion de los parametros de la función 
-       Se realiza una busqueda de los diferenetes parametros 
-       para poder hacer la correspondiente evaluacion */
-       int cont = 0;
-       while (cont < this._terminos.size() && e.getTipoError()== modelado.Error.tipoError.SINERROR){
-            parametros.add(this._terminos.get(cont).evaluar(m, instancia, e));
-            cont++;
-       };
-       
        String res;
-       if (e.getTipoError() == modelado.Error.tipoError.SINERROR){
-           res = m.evaluarFuncion(this._id, parametros, e);
-           if (e.getTipoError() != modelado.Error.tipoError.SINERROR){
-               res = ""; 
-               /*"evaluarFuncion"1 retorna ' ' pero para una mayor 
-               consistencia se le asigna el resultado de error de 
-               forma explicita.*/
-           }
-       } else res = "";
+       if (!m.aridadFuncionCorrecta(this._id, this._terminos.size())){
+                e.setError(modelado.Error.tipoError.ARIDAD, "Cantidad de paramentros incorrecta dentro de " + this._id);
+                return "";
+            } else {
+            /* definicion de los parametros de la función 
+            Se realiza una busqueda de los diferenetes parametros 
+            para poder hacer la correspondiente evaluacion */
+            int cont = 0;
+            while (cont < this._terminos.size() && e.notError()){
+                 parametros.add(this._terminos.get(cont).evaluar(m, instancia, e));
+                 cont++;
+            };
+     
+            if (e.getTipoError() == modelado.Error.tipoError.SINERROR){
+                res = m.evaluarFuncion(this._id, parametros, e);
+                if (e.getTipoError() != modelado.Error.tipoError.SINERROR){
+                    res = ""; 
+                    /*"evaluarFuncion"1 retorna ' ' pero para una mayor 
+                    consistencia se le asigna el resultado de error de 
+                    forma explicita.*/
+                }
+            } else res = "";
+        }
     
        return res;
     }

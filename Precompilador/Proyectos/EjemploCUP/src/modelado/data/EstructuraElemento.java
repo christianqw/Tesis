@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Chris
  */
-public class Estructura {
+public class EstructuraElemento {
     
     private ArrayList<Opciones> _listAtributos;
     

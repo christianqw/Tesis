@@ -31,10 +31,14 @@ public class Constructor {
     }
     
     public Evaluador getPredicado(String Id, ArrayList<Elemento> parametros){
-        ArrayList<Evaluador> parciales = new ArrayList();
+        ArrayList<Evaluador> parciales = new ArrayList(); 
+        //mantenemos los evaluadores parciales para generar nuevos evaluadores compuestos.
         ArrayList<String> lista = _definidor.get(Id).getListaClaves();
+        //lista que posee las claves de las contruccion de objetos de predicados
         ArrayList<Integer> numparametro = _definidor.get(Id).getListaParam();
+        //lista que define el roden en el que son utilizados los lelementos, el orden es creciente.
         ArrayList<String> atributo = _definidor.get(Id).getListaAtributos();
+        //lista donde figuran los atributos que se utilizan.
         int Index = 0;
         /*
         For (lista de claves)
@@ -79,6 +83,14 @@ public class Constructor {
                 }
             }
         return parciales.get(0);
+    }
+
+    public boolean cantidadParametrosCorrectos(String id, int parametros) {
+        return (this._definidor.get(id).getCantidadParametros() == parametros);
+    }
+
+    public boolean existeId(String id) {
+        return this._definidor.containsKey(id);
     }
     
 }
