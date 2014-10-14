@@ -1,1 +1,8 @@
-{"Fil":[1,2,3],"Tipo":["circulo","piramide","hexaedro"],"Col":[1,2,3],"Dom":"Figura","Tamaño":["chico","mediano","grande"]}
+{"Dom":"Figura",
+ "ListAtributos":[
+	{"Atributo":"Tipo","Opciones":["circulo","piramide","hexaedro"]},
+	{"Atributo":"Tamaño","Opciones":["chico","mediano","grande"]},
+	{"Atributo":"Col","Opciones":["1","2","3"]},
+	{"Atributo":"Fil","Opciones":["1","2","3"]}
+				]
+}
