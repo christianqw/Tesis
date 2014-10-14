@@ -63,7 +63,7 @@ public class Modelo {
     
     // -- MODIFICACION DE ELEMENTOS
     
-    private boolean agregarElemento(String name, Elemento elem){
+    public boolean agregarElemento(String name, Elemento elem){
         if (!dominioContiene(name)){
             this._dominio.put(name, elem);
             return true;
@@ -71,14 +71,14 @@ public class Modelo {
         else 
             return false;
     }
-    private boolean eliminarElemento(String name){
+    public boolean eliminarElemento(String name){
         if (dominioContiene(name)){
             this._dominio.remove(name);
             return true;
         }
         else return false;
     }
-    private boolean renombrarElemento(String name, String newname){
+    public boolean renombrarElemento(String name, String newname){
         if (dominioContiene(name)){
             return true;
         }
