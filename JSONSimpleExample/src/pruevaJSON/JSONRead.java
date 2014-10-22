@@ -30,28 +30,48 @@ public class JSONRead {
   
   try {  
   
+   //Cargamos el Archivo para ser parseado
    Object obj = parser.parse(new FileReader("ExampleConfigJSONFile.json"));  
-  
+   //Se realiza el casteo del mismo
    JSONObject jsonObject = (JSONObject) obj;  
-  
-   String nameOfCountry = (String) jsonObject.get("Name");  
-   System.out.println("Name Of Country: "+nameOfCountry);  
-  
-   long population = (long) jsonObject.get("Population");  
-   System.out.println("Population: "+population);  
-  
-   System.out.println("States are :");  
-   JSONArray listOfStates = (JSONArray) jsonObject.get("States");  
-   Iterator<String> iterator = listOfStates.iterator();  
-   while (iterator.hasNext()) {  
-    System.out.println(iterator.next());  
+  //obtenemos el Dominio de los elementos definidos (primer atributo)
+   String nameOfElement = (String) jsonObject.get("Dominio");  
+   System.out.println("Name Of Element: "+ nameOfElement);  
+  //Comnezamos a cargar los distintos atributos
+   System.out.println("Atributos :");  
+   JSONArray listOfAtributos; //Lista de Atributos definidos
+   JSONObject jsonAtributo;
+   JSONArray listOfOpciones;  //Lista de opciones de cada atributo
+   
+   listOfAtributos = (JSONArray)jsonObject.get("ListAtributos"); 
+   int indexOpciones, indexAtributo;
+   indexAtributo = 0;
+   while (indexAtributo < listOfAtributos.size()) {  //Recorremos todos los Atributos
+       jsonAtributo = (JSONObject) listOfAtributos.get(indexAtributo);
+       //obtenemos el nombre del atributo
+       String nameOfAtributo = (String) jsonAtributo.get("Atributo");  
+       System.out.println("Name Of Atributo: "+ nameOfAtributo);  
+       listOfOpciones = (JSONArray)jsonAtributo.get("Opciones");
+       System.out.println("    Opciones :"); 
+       indexOpciones = 0;
+       while (indexOpciones < listOfOpciones.size()){
+           String Opcion = (String) listOfOpciones.get(indexOpciones); 
+           System.out.println("    " + Opcion); 
+           indexOpciones++;
+       }
+       indexAtributo++;
+       
    }  
   
-  } catch (FileNotFoundException e) {  
+  } catch (FileNotFoundException e) {
+        System.out.println("   FileNotFoundException "); 
    e.printStackTrace();  
   } catch (IOException e) {  
+        System.out.println("   IOException "); 
    e.printStackTrace();  
-  } catch (ParseException e) {  
+  } catch (ParseException e) {
+        System.out.println("ParseException" ); 
+        System.out.println("Posible pos: "+ e.getPosition() + " Posible error con: " + e);
    e.printStackTrace();  
   }  
   

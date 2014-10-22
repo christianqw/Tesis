@@ -36,7 +36,7 @@ public class JSONWrite {
         Map ElementObj = new  LinkedHashMap();  
         //permite que conserve el orden de los elementos agregados. 
         
-        ElementObj.put("Dom", "Figura");  
+        ElementObj.put("Dominio", "Figura");  
 
         JSONArray listOfAtributos = new JSONArray(); 
         

@@ -9,8 +9,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;  
 import java.io.IOException;  
 import java.util.Iterator;  
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import org.json.simple.JSONArray;  
 import org.json.simple.JSONObject;  
+import org.json.simple.JSONValue;
+import org.json.simple.parser.ContainerFactory;
 import org.json.simple.parser.JSONParser;  
 import org.json.simple.parser.ParseException;  
 /**
@@ -19,8 +25,14 @@ import org.json.simple.parser.ParseException;
  */
 public class JSONSimpleReadingFromFileExample {  
   
- public static void main(String[] args) {  
+ public static void main(String[] args) throws ParseException {  
+ 
   
+     
+     
+  /*
+  //Ejemplo basico de decodificacion basico.
+     
   JSONParser parser = new JSONParser();  
   
   try {  
@@ -49,7 +61,7 @@ public class JSONSimpleReadingFromFileExample {
   } catch (ParseException e) {  
    e.printStackTrace();  
   }  
-  
+  */
  }  
 }   
 
