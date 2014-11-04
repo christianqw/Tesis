@@ -6,8 +6,10 @@
 
 package modelado;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import modelado.data.Atributo;
+import java.util.Iterator;
+import modelado.data.EstructuraElemento;
 
 /**
  *
@@ -15,10 +17,35 @@ import modelado.data.Atributo;
  */
 public class Elemento {
     
-    private HashMap<String, Atributo> _atributos;
+    private HashMap<String, Integer> _atributos;
+    EstructuraElemento _estructura;
     private int _posx, _posy;
     private String _name;
 
+    public Elemento(EstructuraElemento estructura, int posx, int posy, String name) {
+        this._estructura = estructura;
+        this._atributos = new HashMap<>();
+        this._posx = posx;
+        this._posy = posy;
+        this._name = name;
+    }
+    
+    public boolean setValue(String atributo, String valor) {
+        if (this._estructura.esNombreValido(atributo, valor)){
+            this._atributos.put(atributo, _estructura.getValue(atributo, valor));
+            return true;
+        }
+        else return false; 
+    }
+    
+    public void inicElem(){
+        ArrayList<String> namesAtributos = this._estructura.getAtributos();
+        for (Iterator<String> it = namesAtributos.iterator(); it.hasNext();) {
+            String string = it.next();
+            this._atributos.put(string, 0);
+        }
+    }
+    
     void setPosicion(int x, int y) {
         this._posx = x;
         this._posy = y;
@@ -29,9 +56,11 @@ public class Elemento {
     }
 
     public int getvalue(String nameAtributo) {
-        return _atributos.get(nameAtributo).getValue();
+        return _atributos.get(nameAtributo);
     }
     
-    
+    public String getStringvalue(String nameAtributo) {
+        return this._estructura.getNameValue(nameAtributo, this._atributos.get(nameAtributo));
+    } 
     
 }

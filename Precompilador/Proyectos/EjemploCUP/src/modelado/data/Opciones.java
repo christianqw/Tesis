@@ -18,7 +18,7 @@ public class Opciones {
     private final ArrayList<String> _opciones;
     private String _clave;
 
-    public Opciones(ArrayList<String> opciones, String clave) {
+    public Opciones(String clave, ArrayList<String> opciones) {
         this._opciones = opciones;
         this._clave = clave;
     }

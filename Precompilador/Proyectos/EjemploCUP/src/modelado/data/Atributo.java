@@ -12,6 +12,9 @@ import java.util.Set;
  * @author Chris
  */
 public class Atributo {
+    /*
+    CLASE QUE NO ES UTILIZADA EN REALIDAD. 
+    ELIMINADA CUANDO SE HIZO REFACTORIZACION 
     
     private Opciones _opciones;
     private int _value;
@@ -52,6 +55,6 @@ public class Atributo {
         }
         else return false; 
     }
-    
+    */
     
 }
