@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modelado.evaluadores.Igual;
+import modelado.relaciones.Igual;
 
 /**
  *

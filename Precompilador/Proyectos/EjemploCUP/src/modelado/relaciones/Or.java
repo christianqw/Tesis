@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package modelado.evaluadores;
+package modelado.relaciones;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -15,7 +15,7 @@ import java.util.Iterator;
  */
 public class Or extends Compuesto{
  
-    private ArrayList<Evaluador> _elementos;
+    private ArrayList<Verificador> _elementos;
 
     public Or() {
          this._elementos = new ArrayList() ;
@@ -27,11 +27,11 @@ public class Or extends Compuesto{
     }
 
     @Override
-    public boolean evaluar() {
+    public boolean verificar() {
         boolean parcial = false;
-        Iterator<Evaluador> it = _elementos.iterator();
+        Iterator<Verificador> it = _elementos.iterator();
         while (!parcial && it.hasNext()){
-            parcial = parcial || it.next().evaluar();
+            parcial = parcial || it.next().verificar();
         }
         return parcial;
     }

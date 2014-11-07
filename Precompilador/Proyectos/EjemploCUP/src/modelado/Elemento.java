@@ -46,15 +46,29 @@ public class Elemento {
         }
     }
     
-    void setPosicion(int x, int y) {
+    public void setPosicion(int x, int y) {
         this._posx = x;
         this._posy = y;
     }
     
-    void setNombre(String name){
+    public void setNombre(String name){
         this._name= name;
     }
 
+    public String getNombre (){
+        return this._name;
+    }
+
+    public int getPosx() {
+        return this._posx;
+    }
+
+    public int getPosy() {
+        return this._posy;
+    }
+    
+    
+    
     public int getvalue(String nameAtributo) {
         return _atributos.get(nameAtributo);
     }

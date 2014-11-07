@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package modelado.evaluadores;
+package modelado.relaciones;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ import modelado.data.EstructuraPredicado;
  *
  * @author Chris
  */
-public class Constructor {
+public class GeneradorPredicados {
     
     private static HashMap<String, String> _clases; 
     private static HashMap<String, EstructuraPredicado> _definidor;
@@ -26,12 +26,12 @@ public class Constructor {
         _clases.put("OR", "modelado.evaluadores.Or");
     }
     
-    public Constructor() {
+    public GeneradorPredicados() {
         cargarClases();
     }
     
-    public Evaluador getPredicado(String Id, ArrayList<Elemento> parametros){
-        ArrayList<Evaluador> parciales = new ArrayList(); 
+    public Verificador getPredicado(String Id, ArrayList<Elemento> parametros){
+        ArrayList<Verificador> parciales = new ArrayList(); 
         //mantenemos los evaluadores parciales para generar nuevos evaluadores compuestos.
         ArrayList<String> lista = _definidor.get(Id).getListaClaves();
         //lista que posee las claves de las contruccion de objetos de predicados
@@ -64,7 +64,7 @@ public class Constructor {
                     valor2 = parametros.get(numparametro.get(Index)).getvalue(atributo.get(Index));
                     Index ++;
                 }
-                parciales.add((Evaluador) Class.forName(_clases.get(lista.get(pos))).newInstance());
+                parciales.add((Verificador) Class.forName(_clases.get(lista.get(pos))).newInstance());
                 pos++;
             } catch (Exception ex) {
                      System.err.println("EXPLOTO LA GENERACION DE CLASES SIMPLE !!!!!!!!!");//Hacer algo

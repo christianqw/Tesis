@@ -4,19 +4,12 @@
  * and open the template in the editor.
  */
 
-package modelado.evaluadores;
-
-import java.util.ArrayList;
+package modelado.relaciones;
 
 /**
  *
  * @author Chris
  */
-public abstract class Evaluador {
-
-    @Override
-    public abstract String toString();
-
-    public abstract boolean evaluar();
-     
+public class Menor {
+    
 }

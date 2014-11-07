@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package modelado.evaluadores;
+package modelado.relaciones;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,15 +13,15 @@ import java.util.Iterator;
  *
  * @author Chris
  */
-public abstract class Compuesto extends Evaluador{
+public abstract class Compuesto extends Verificador{
 
-    private ArrayList<Evaluador> _elementos;
+    private ArrayList<Verificador> _elementos;
 
-    public void setEvaluadores (ArrayList<Evaluador> comp) {
+    public void setEvaluadores (ArrayList<Verificador> comp) {
         this._elementos = comp;
     }   
     
-    public void addComparador(Evaluador c) {
+    public void addComparador(Verificador c) {
         this._elementos.add(c);
     }  
     

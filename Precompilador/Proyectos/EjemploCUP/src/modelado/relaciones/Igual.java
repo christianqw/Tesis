@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package modelado.evaluadores;
+package modelado.relaciones;
 /**
  *
  * @author Chris
  */
-public class Igual extends Evaluador{
+public class Igual extends Verificador{
 
     private final Integer _value1, _value2;
    
@@ -24,7 +24,7 @@ public class Igual extends Evaluador{
     }
 
     @Override
-    public boolean evaluar() {
+    public boolean verificar() {
          return _value1.equals(_value2);
     }
 

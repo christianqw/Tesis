@@ -9,6 +9,7 @@ package modelado;
  * @author Chris
  */
 public class NodoAnimal {
+    /* CLASE OBSOLETA
     
      public enum tipoAnimal{
         CHANCHO, GALLINA, PATO, VACA
@@ -51,5 +52,5 @@ public class NodoAnimal {
     public int getY() {
         return y;
     }
-      
+      */
 }

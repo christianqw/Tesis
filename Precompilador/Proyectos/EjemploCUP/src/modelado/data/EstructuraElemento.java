@@ -17,6 +17,7 @@ import java.util.HashMap;
 public class EstructuraElemento {
     
     private HashMap<String, Opciones>_listAtributos;
+    private String _dom;
 
     // ----  Definicion del elemento  ----
     public EstructuraElemento(){
@@ -27,6 +28,15 @@ public class EstructuraElemento {
         this._listAtributos.put(name, new Opciones(name, op));
     }
 
+    public String getDominio() {
+        return _dom;
+    }
+
+    public void setDominio(String dominio) {
+        this._dom = dominio;
+    }
+
+    
     // ----  Uso del elemento  ----
     
     //Retorna la clave nuemrica de una opcion de un determinado atributo

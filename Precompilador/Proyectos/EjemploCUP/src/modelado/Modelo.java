@@ -9,7 +9,8 @@ import modelado.data.EstructuraElemento;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-import modelado.evaluadores.Constructor;
+import modelado.relaciones.GeneradorFunciones;
+import modelado.relaciones.GeneradorPredicados;
 
 /**
  *
@@ -19,24 +20,27 @@ public class Modelo {
     
     //Estructur que define los distintos elementos que conforman al Modelo.
     //Los elementos del dominio comparten la misma estructura en comun. 
-    private EstructuraElemento _estructura;
-    
+    private EstructuraElemento _infoElemento;
+
     //posee un mapa con los diferentes elementos que estan definidos
     //dentro del modelo. NUESTRO DOMINIO
     private HashMap<String, Elemento> _dominio; 
     
-    //posee un contructor de predicados que es utilizado para definir los 
+    //contructor de predicados que es utilizado para definir los 
     //predicados que el modelo reconoce y sus respectivas caracteristicas.
-    private Constructor _defPredicados;
+    //Ademas internamente maneja la info de los distintos predicados a definir. 
+    GeneradorPredicados _defPredicados;
+    GeneradorFunciones _defFunciones;
     
     //Constructor de la clase, es necesario definir mediante la estructura
     // que atributos poseen los distintos elenemtos que confroman el modelo
     public Modelo(EstructuraElemento estruc) {
-        this._estructura = estruc; 
+        this._infoElemento = estruc; 
    }
     
     // -- GENERICO AL MODELO
     public String evaluarFuncion (String id, ArrayList<String> parametros, Error error){
+       Elemento Aux;
         if (dominioVacio()){
             error.setError(Error.tipoError.DOMVACIO, "El modelo no posee definido elementos dentro de su Dominio");
             return "";
@@ -45,7 +49,8 @@ public class Modelo {
             error.setError(Error.tipoError.NOEXISTEP, "No Existe la funcion "+ id);
             return "";
         } else
-            return evaluarFunc(id, parametros);
+            Aux = this._defFunciones.getFuncion(id, transformaPAramentros(parametros), transformaPAramentros(new ArrayList<String>(getListaElementos()))).evaluar();
+            return Aux.getNombre();
     }
     
     public boolean verificarPredicado (String id, ArrayList<String> parametros, Error error){
@@ -58,7 +63,7 @@ public class Modelo {
             return false;
         } else
             //Llegando a este punto, este predicado no posee ningun tipo de error
-            return evaluarPred(id, parametros);
+            return _defPredicados.getPredicado(id, transformaPAramentros(parametros)).verificar();
     }
     
     // -- MODIFICACION DE ELEMENTOS
@@ -108,13 +113,6 @@ public class Modelo {
     }
     */
     
-    private boolean evaluarPred(String predicado, ArrayList<String> elementos){
-        return _defPredicados.getPredicado(predicado, transformaPAramentros(elementos)).evaluar();
-    }
-    
-    String evaluarFunc(String predicado, ArrayList<String> elementos){
-        return "";
-    }
     
     private ArrayList<Elemento> transformaPAramentros( ArrayList<String> elementos){
         return null;
@@ -140,11 +138,11 @@ public class Modelo {
     }
     
     public boolean aridadFuncionCorrecta(String id, int parametros) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this._defFunciones.cantidadParametrosCorrectos(id, parametros);
     }
 
     private boolean existeIdFuncion(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this._defFunciones.existeId(id);
     }
     
 }
