@@ -1,4 +1,4 @@
-package JSONSimple;
+package jsonsimpleexample;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -150,4 +150,4 @@ public class JSONWrite {
         }  
   
     }  
-} 
+}  
