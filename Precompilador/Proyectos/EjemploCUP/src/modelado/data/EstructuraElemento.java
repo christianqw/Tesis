@@ -61,4 +61,11 @@ public class EstructuraElemento {
     public ArrayList<String> getAtributos(){
         return new ArrayList<String>(this._listAtributos.keySet());
     }
+
+    @Override
+    public String toString() {
+        return "EstructuraElemento{" + "_listAtributos=" + _listAtributos + ", _dom=" + _dom + '}';
+    }
+    
+    
 }

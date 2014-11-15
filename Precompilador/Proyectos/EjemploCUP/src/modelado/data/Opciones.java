@@ -54,4 +54,10 @@ public class Opciones {
     int getValue(String name) {
         return this._opciones.indexOf(name);
     }
+
+    @Override
+    public String toString() {
+        return "Opciones{" + "_opciones=" + _opciones + ", _clave=" + _clave + '}';
+    }
+
 }

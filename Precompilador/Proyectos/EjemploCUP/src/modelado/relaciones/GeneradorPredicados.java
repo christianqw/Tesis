@@ -17,7 +17,9 @@ import modelado.data.EstructuraPredicado;
  */
 public class GeneradorPredicados {
     
+    //             Id utilizado dentro del Archivo | Nombre de la clase
     private static HashMap<String, String> _clases; 
+    //                     Id del predicado | Estructura del predicado
     private static HashMap<String, EstructuraPredicado> _definidor;
 
     

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package jsonsimple;
+package JSONSimple;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -58,10 +58,10 @@ public class PredicadoJSON implements JSONStreamAware{
     no encontre que el casteo de las listas se pueda realizar por medio
     de una funcion ya definida de la clase
     */
-    private JSONArray cargarLista(ArrayList opciones){
+    private JSONArray cargarLista(ArrayList elementos){
         JSONArray list = new JSONArray();  
-        for (int i = 0; i < opciones.size(); i++) {
-            list.add(opciones.get(i));
+        for (int i = 0; i < elementos.size(); i++) {
+            list.add(elementos.get(i));
         }
         return list;
     }

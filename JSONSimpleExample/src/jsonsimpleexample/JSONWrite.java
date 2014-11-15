@@ -70,6 +70,27 @@ public class JSONWrite {
         return ElementObj;
     }
     
+    private static JSONArray GenerarFunciones(){
+        JSONArray listOfFunciones = new JSONArray(); 
+        
+        JSONObject fun = new JSONObject();
+        fun.put("Class", "ElMasLejano");
+        fun.put("Rename", "ELMASLEJANO");
+        listOfFunciones.add(fun);//mismo nombre
+    
+        fun = new JSONObject();
+        fun.put("Class", "ElMasCercano");
+        fun.put("Rename", "CERCA");
+        listOfFunciones.add(fun);//renombrada
+        
+        fun = new JSONObject();
+        fun.put("Class", "ElMasArriva");
+        fun.put("Rename", "NULL");
+        listOfFunciones.add(fun);//ignorada.
+        
+        return listOfFunciones;
+    }
+    
     private static JSONArray GenerarPredicados(){
         JSONArray listOfPredicados = new JSONArray();
         
@@ -112,20 +133,12 @@ public class JSONWrite {
     }
     
     public static void main(String[] args) {  
-  
-                 
-        
-        //-------------------------------
-        JSONObject FuntionObj = new JSONObject(); 
-        FuntionObj.put("ElMasLejano", "ELMASLEJANO"); //mismo nombre
-        FuntionObj.put("ElMasCercano", "CERCA"); //renombrada
-        FuntionObj.put("ElMasArriva", "NULL"); //ignorada.
         
         JSONObject ConfigJSON = new  JSONObject();  
         
         ConfigJSON.put("Elemento", GenerarlElemento());
         ConfigJSON.put("Predicado", GenerarPredicados());
-        ConfigJSON.put("Funcion", FuntionObj);
+        ConfigJSON.put("Funcion", GenerarFunciones());
         
         try {  
               

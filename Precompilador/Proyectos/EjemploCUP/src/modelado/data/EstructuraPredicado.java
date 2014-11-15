@@ -19,12 +19,12 @@ public class EstructuraPredicado {
     private int _cantidadParametros;
     private String _id;
 
-    public EstructuraPredicado(ArrayList<String> _listaClaves, ArrayList<String> _listaAtributos, ArrayList<Integer> _listaParametros, int _cantidadParametros, String _id) {
-        this._listaClaves = _listaClaves;
-        this._listaAtributos = _listaAtributos;
-        this._listaParametros = _listaParametros;
-        this._cantidadParametros = _cantidadParametros;
-        this._id = _id;
+    public EstructuraPredicado(String id,Integer cantidadParametros, ArrayList<String> listaClaves, ArrayList<Integer> listaParametros, ArrayList<String> listaAtributos) {
+        this._listaClaves = listaClaves;
+        this._listaAtributos = listaAtributos;
+        this._listaParametros = listaParametros;
+        this._cantidadParametros = cantidadParametros;
+        this._id = id;
     }
     
     public ArrayList<String> getListaClaves() {
@@ -47,4 +47,10 @@ public class EstructuraPredicado {
         return this._id;
     }
 
+    @Override
+    public String toString() {
+        return "EstructuraPredicado{" + "_listaClaves=" + _listaClaves + ", _listaAtributos=" + _listaAtributos + ", _listaParametros=" + _listaParametros + ", _cantidadParametros=" + _cantidadParametros + ", _id=" + _id + '}';
+    }
+
+    
 }
