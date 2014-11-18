@@ -6,6 +6,7 @@ package estructuraLogica;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import modelado.Elemento;
 import modelado.Modelo;
 
 /**
@@ -32,7 +33,7 @@ public class Predicado implements Formula{
 
     @Override
     public boolean verificar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
-        ArrayList<String> consulta = new ArrayList<String>();
+        ArrayList<Elemento> consulta = new ArrayList<Elemento>();
         boolean res = true; 
         //En este momento es posible realizar la verificacion de error de cantidad de paramentros.
         if (!m.aridadPredicadoCorrecta(this._id, this._terminos.size())){

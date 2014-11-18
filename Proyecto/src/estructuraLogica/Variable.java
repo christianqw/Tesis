@@ -16,7 +16,7 @@ public class Variable extends Termino{
     private final String _id;
     
     @Override
-    public String evaluar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
+    public Elemento evaluar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
         
         String name_elem = this._id;
         
@@ -31,11 +31,11 @@ public class Variable extends Termino{
         tabla o una constante definida dentro de la formila. 
         */
         if (m.dominioContiene(name_elem))
-            return name_elem;
+            return m.getElemento(name_elem);
         else {
             //no existe un elemento con el nombre dentro del dominio. 
             e.setError(modelado.Error.tipoError.VARLIBRE, name_elem);
-            return "";
+            return null;
         }
     }
 

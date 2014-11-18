@@ -44,7 +44,7 @@ public class Existe implements Formula{
         /*Recorre todos los valores del dominio para hacer 
         las evaluaciones.        
         */
-        Set<String> listElems = m.getListaElementos();
+        Set<String> listElems = m.getListaNombresElementos();
         Iterator<String> it = listElems.iterator();
         boolean resultado = false;
         while (it.hasNext() && !resultado && (e.getTipoError() == modelado.Error.tipoError.SINERROR)){

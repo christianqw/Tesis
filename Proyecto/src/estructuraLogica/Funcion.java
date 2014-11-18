@@ -6,6 +6,7 @@ package estructuraLogica;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import modelado.Elemento;
 import modelado.Modelo;
 
 /**
@@ -36,13 +37,13 @@ public class Funcion extends Termino{
     
     @Override
     @SuppressWarnings("empty-statement")
-    public String evaluar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
-       ArrayList<String> parametros = new ArrayList();
+    public Elemento evaluar(Modelo m, HashMap<String, String> instancia, modelado.Error e) {
+       ArrayList<Elemento> parametros = new ArrayList();
        
-       String res;
+       Elemento res;
        if (!m.aridadFuncionCorrecta(this._id, this._terminos.size())){
                 e.setError(modelado.Error.tipoError.ARIDAD, "Cantidad de paramentros incorrecta dentro de " + this._id);
-                return "";
+                return null;
             } else {
             /* definicion de los parametros de la función 
             Se realiza una busqueda de los diferenetes parametros 
@@ -56,12 +57,12 @@ public class Funcion extends Termino{
             if (e.getTipoError() == modelado.Error.tipoError.SINERROR){
                 res = m.evaluarFuncion(this._id, parametros, e);
                 if (e.getTipoError() != modelado.Error.tipoError.SINERROR){
-                    res = ""; 
+                    res = null; 
                     /*"evaluarFuncion"1 retorna ' ' pero para una mayor 
                     consistencia se le asigna el resultado de error de 
                     forma explicita.*/
                 }
-            } else res = "";
+            } else res = null;
         }
     
        return res;

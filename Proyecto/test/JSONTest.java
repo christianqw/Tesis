@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JSONSimple;  
   
-import java.io.FileNotFoundException;  
-import java.io.FileReader;  
+import JSONSimple.JSONAdmin;
+import java.io.File;  
+import java.io.FileWriter;  
 import java.io.IOException;  
-import java.util.Iterator;  
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import org.json.simple.JSONValue;
 import org.json.simple.JSONArray;  
 import org.json.simple.JSONObject;  
-import org.json.simple.parser.JSONParser;  
-import org.json.simple.parser.ParseException;  
 /**
  *
  * @author Chris
@@ -30,9 +32,9 @@ public class JSONTest {
      //asd.ReadJSONElemento();
      //asd.ReadJSONFunciones();
      
-     asd.ReadJSONElemento();
-     asd.ReadJSONPredicado();
-     asd.ReadJSONFunciones();
+     System.out.println(asd.ReadJSONElemento().toString());
+     System.out.println(asd.ReadJSONPredicado().toString());
+     System.out.println(asd.ReadJSONFunciones().toString());
      
 //  JSONParser parser = new JSONParser();  
 //  

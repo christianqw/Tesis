@@ -4,11 +4,11 @@
  */
 package modelado;
 
-import modelado.data.Atributo;
 import modelado.data.EstructuraElemento;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+import modelado.data.EstructuraPredicado;
 import modelado.relaciones.GeneradorFunciones;
 import modelado.relaciones.GeneradorPredicados;
 
@@ -34,26 +34,29 @@ public class Modelo {
     
     //Constructor de la clase, es necesario definir mediante la estructura
     // que atributos poseen los distintos elenemtos que confroman el modelo
-    public Modelo(EstructuraElemento estruc) {
+    public Modelo(EstructuraElemento estruc, HashMap<String, EstructuraPredicado> predic, HashMap<String, String> func) throws ClassNotFoundException {
         this._infoElemento = estruc; 
+        this._dominio = new HashMap<> ();
+        this._defFunciones = new GeneradorFunciones(func);
+        this._defPredicados = new GeneradorPredicados(predic);
    }
     
     // -- GENERICO AL MODELO
-    public String evaluarFuncion (String id, ArrayList<String> parametros, Error error){
+    public Elemento evaluarFuncion (String id, ArrayList<Elemento> parametros, Error error){
        Elemento Aux;
         if (dominioVacio()){
             error.setError(Error.tipoError.DOMVACIO, "El modelo no posee definido elementos dentro de su Dominio");
-            return "";
+            return null;
         }
         if (!existeIdFuncion (id)){
             error.setError(Error.tipoError.NOEXISTEP, "No Existe la funcion "+ id);
-            return "";
+            return null;
         } else
-            Aux = this._defFunciones.getFuncion(id, transformaPAramentros(parametros), transformaPAramentros(new ArrayList<String>(getListaElementos()))).evaluar();
-            return Aux.getNombre();
+            Aux = this._defFunciones.getFuncion(id, parametros, getTodosLosElementos()).evaluar();
+            return Aux;
     }
     
-    public boolean verificarPredicado (String id, ArrayList<String> parametros, Error error){
+    public boolean verificarPredicado (String id, ArrayList<Elemento> parametros, Error error){
         if (dominioVacio()){
             error.setError(Error.tipoError.DOMVACIO, "El modelo no posee definido elementos dentro de su Dominio");
             return false;
@@ -63,7 +66,7 @@ public class Modelo {
             return false;
         } else
             //Llegando a este punto, este predicado no posee ningun tipo de error
-            return _defPredicados.getPredicado(id, transformaPAramentros(parametros)).verificar();
+            return _defPredicados.getPredicado(id, parametros).verificar();
     }
     
     // -- MODIFICACION DE ELEMENTOS
@@ -83,39 +86,36 @@ public class Modelo {
         }
         else return false;
     }
-    public boolean renombrarElemento(String name, String newname){
+    public boolean setNombreElemento(String name, String newname){
         if (dominioContiene(name)){
+            this._dominio.put(newname, this._dominio.remove(name));
             return true;
         }
         else return false;
     }
 
-    boolean setAtributo (String name, Atributo value){
+    public boolean setAtributo (String name, String atributo, String value){
         if (this.dominioContiene(name)){
-            return true;
+            if (esAtributoValido(atributo)){
+                return this._dominio.get(name).setAtributoStringValue(atributo, value);
+            }else {
+                System.out.println("XXXXXXXX   nombre atributo invalido");
+                return false;
+            }
+        } else {
+            System.out.println("XXXXXXXX  No está el elemento en el dominio");
+            return false;
         }
-        return false;
     }
-    boolean setPosicion(String name, int x, int y){
+    
+    public boolean setPosicion(String name, int x, int y){
         if (this.dominioContiene(name)){
             Elemento aux = this._dominio.get(name);
             aux.setPosicion( x, y);
             return true;
         }
+        System.out.println("XXXXXXXX  No existe elemento");
         return false;
-    }
-
-    // -- MANEJO DE PREDICADOS
-    
-    /* public Collection<String> getDominio(){
-        //Verificar en que lugares se utiliza esto.
-        return this._dominio;
-    }
-    */
-    
-    
-    private ArrayList<Elemento> transformaPAramentros( ArrayList<String> elementos){
-        return null;
     }
     
     private boolean dominioVacio(){
@@ -126,9 +126,6 @@ public class Modelo {
         return this._dominio.containsKey(name);        
     }
     
-    public Set<String> getListaElementos(){
-        return this._dominio.keySet();
-    }
     public boolean aridadPredicadoCorrecta(String id, int parametros) {
         return _defPredicados.cantidadParametrosCorrectos(id, parametros);
     }
@@ -144,5 +141,35 @@ public class Modelo {
     private boolean existeIdFuncion(String id) {
         return this._defFunciones.existeId(id);
     }
+
+    public Elemento getElemento(String name_elem) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private ArrayList<Elemento> getTodosLosElementos() {
+        return new ArrayList<Elemento> (this._dominio.values());
+    }
     
+    public Set<String> getListaNombresElementos(){
+        return this._dominio.keySet();
+    }    
+
+    public EstructuraElemento getEstructuraElemento() {
+        return this._infoElemento;
+    }
+
+    @Override
+    public String toString() {
+        return "Modelo{" + "EstructuraElemento =" + _infoElemento + ",\n Dominio Actual =" + _dominio + ",\n  Predicados =" + _defPredicados + ",\n Funciones =" + _defFunciones + '}';
+    }
+    
+    public String domtoString() {
+        return this._dominio.toString();
+    }
+
+    private boolean esAtributoValido(String atributo) {
+        return this._infoElemento.esAtributoValido(atributo);
+    }
+    
+   
 }

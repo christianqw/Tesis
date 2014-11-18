@@ -28,14 +28,26 @@ public class Elemento {
         this._posx = posx;
         this._posy = posy;
         this._name = name;
+        inicElem();
     }
     
-    public boolean setValue(String atributo, String valor) {
+    public boolean setAtributoStringValue(String atributo, String valor) {
         if (this._estructura.esNombreValido(atributo, valor)){
             this._atributos.put(atributo, _estructura.getValue(atributo, valor));
             return true;
         }
-        else return false; 
+        else{
+            System.out.println("XXXXXXX Error: valor del atributo invalido ");
+            return false;
+        } 
+    }
+    
+    public boolean setAtributoNumValue(String atributo, int valor){
+        if (this._estructura.esValido(atributo, valor)){
+            this._atributos.put(atributo, valor);
+            return true;
+        }
+        else return false;
     }
     
     public void inicElem(){
@@ -67,8 +79,6 @@ public class Elemento {
         return this._posy;
     }
     
-    
-    
     public int getvalue(String nameAtributo) {
         return _atributos.get(nameAtributo);
     }
@@ -76,5 +86,10 @@ public class Elemento {
     public String getStringvalue(String nameAtributo) {
         return this._estructura.getNameValue(nameAtributo, this._atributos.get(nameAtributo));
     } 
+
+    @Override
+    public String toString() {
+        return "Elemento{" + "_atributos=" + _atributos + ", _posx=" + _posx + ", _posy=" + _posy + ", _name=" + _name + '}';
+    }   
     
 }

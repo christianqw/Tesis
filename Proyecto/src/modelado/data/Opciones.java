@@ -16,11 +16,11 @@ import java.util.Set;
 public class Opciones {
     
     private final ArrayList<String> _opciones;
-    private String _clave;
+//    private String _clave;
 
-    public Opciones(String clave, ArrayList<String> opciones) {
+    public Opciones(ArrayList<String> opciones) {
         this._opciones = opciones;
-        this._clave = clave;
+//        this._clave = clave;
     }
     
     public boolean contains(String name){
@@ -43,9 +43,10 @@ public class Opciones {
     public int size(){
         return this._opciones.size();
     }
-    public void setClave(String name){
-        this._clave = name; 
-    }
+//    
+//    public void setClave(String name){
+//        this._clave = name; 
+//    }
 
     String getNameValue(int pos) {
         return this._opciones.get(pos);
@@ -57,7 +58,7 @@ public class Opciones {
 
     @Override
     public String toString() {
-        return "Opciones{" + "_opciones=" + _opciones + ", _clave=" + _clave + '}';
+        return "Opciones{" + "_opciones=" + _opciones + "}";
     }
 
 }

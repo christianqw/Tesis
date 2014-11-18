@@ -56,9 +56,10 @@ public class JSONWrite {
         opciones.add("2");  
         opciones.add("3");
 
-        listOfAtributos.add(new AtributoJSON("Col", opciones)); 
-
         listOfAtributos.add(new AtributoJSON("Fil", opciones)); 
+        
+        opciones.add("4");       
+        listOfAtributos.add(new AtributoJSON("Col", opciones)); 
 
         ElementObj.put("ListAtributos", listOfAtributos); 
 

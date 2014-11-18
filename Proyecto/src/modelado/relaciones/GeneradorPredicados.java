@@ -18,17 +18,21 @@ import modelado.data.EstructuraPredicado;
 public class GeneradorPredicados {
     
     //             Id utilizado dentro del Archivo | Nombre de la clase
-    private static HashMap<String, String> _clases; 
+    private HashMap<String, String> _clases; 
     //                     Id del predicado | Estructura del predicado
-    private static HashMap<String, EstructuraPredicado> _definidor;
+    private HashMap<String, EstructuraPredicado> _definidor;
 
     
-    public static void cargarClases(){
-        _clases.put("IGUAL", "modelado.evaluadores.Igual");
-        _clases.put("OR", "modelado.evaluadores.Or");
+    public void cargarClases(){
+        this._clases = new HashMap<>();
+        
+        //Agregamos los objetos predicados de contruccion
+        this._clases.put("IGUAL", "modelado.relaciones.Igual");
+        this._clases.put("OR", "modelado.relaciones.Or");
     }
     
-    public GeneradorPredicados() {
+    public GeneradorPredicados(HashMap<String, EstructuraPredicado> pred) {
+        this._definidor = pred;
         cargarClases();
     }
     
@@ -94,5 +98,9 @@ public class GeneradorPredicados {
     public boolean existeId(String id) {
         return this._definidor.containsKey(id);
     }
-    
+
+    @Override
+    public String toString() {
+        return "GeneradorPredicados{" + "Lista de Clases=" + _clases + ", \n EstrucPredicados =" + _definidor + '}';
+    }
 }

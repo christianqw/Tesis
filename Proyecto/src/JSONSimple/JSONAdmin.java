@@ -31,7 +31,7 @@ public class JSONAdmin {
     private JSONArray _listOfPredicados;
     
     
-    JSONAdmin(String ruta){
+    public JSONAdmin(String ruta){
         JSONParser parser = new JSONParser();  
         try {  
             //Cargamos el Archivo para ser parseado
@@ -88,8 +88,6 @@ public class JSONAdmin {
              //Agregamos el atributo y sus opciones a la estructura
              estructura.AddAtributo(nameOfAtributo, listOpciones);
          } 
-         
-         System.out.println(estructura);
          return estructura;
 
     } 
@@ -103,7 +101,6 @@ public class JSONAdmin {
              predicados.put(pred.getId(), pred);
              index ++;
          }
-        System.err.println(predicados);
         return predicados;
     }
     
@@ -118,7 +115,6 @@ public class JSONAdmin {
              }
              index ++;
          } 
-        System.out.println(funciones);
         return funciones;
     }
     

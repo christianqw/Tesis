@@ -25,7 +25,7 @@ public class EstructuraElemento {
     }
     
     public void AddAtributo(String name, ArrayList<String> op){
-        this._listAtributos.put(name, new Opciones(name, op));
+        this._listAtributos.put(name, new Opciones(op));
     }
 
     public String getDominio() {
@@ -49,12 +49,24 @@ public class EstructuraElemento {
     }
     
     //Retorna si es valida una opcion
+    @SuppressWarnings("empty-statement")
     public boolean esNombreValido(String atributo, String opcion){
-        return this._listAtributos.get(atributo).contains(opcion);
+        try {
+            return this._listAtributos.get(atributo).contains(opcion);
+        } catch (Exception e) {
+            System.out.println("Error : "+ e.toString());
+            return false;
+        }
+            
+
     }
     //Reorna si es valido una clave
     public boolean esValido(String atributo, int opcion){
         return this._listAtributos.get(atributo).contains(opcion);
+    }
+    
+    public boolean esAtributoValido (String atributo){
+        return this._listAtributos.containsKey(atributo);
     }
     
     //Retorna la Lista de Atributos

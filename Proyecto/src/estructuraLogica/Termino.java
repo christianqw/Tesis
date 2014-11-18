@@ -13,7 +13,7 @@ import modelado.*;
  */
 public abstract class Termino {
     
-    public abstract String evaluar(Modelo m, HashMap<String, String> a, modelado.Error e);
+    public abstract Elemento evaluar(Modelo m, HashMap<String, String> a, modelado.Error e);
 
     @Override
     public abstract String toString();
