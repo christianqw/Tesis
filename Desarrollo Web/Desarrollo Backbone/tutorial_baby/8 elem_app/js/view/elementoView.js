@@ -22,7 +22,7 @@ var app = app || {};
           var tmpl = _.template(this.template);
           //this.el is what we defined in tagName. use $el to get access to jQuery html() function
           this.$el.html(tmpl(this.model.toJSON()));
-          this.$el.attr("id",this.model.get("nombre"));
+          //this.$el.attr("id",this.model.get("nombre"));
           this.$el.draggable();
           return this;
         }

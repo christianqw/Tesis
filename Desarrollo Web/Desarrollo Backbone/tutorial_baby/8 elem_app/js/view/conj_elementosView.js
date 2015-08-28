@@ -21,7 +21,7 @@ var app = app || {};
             //this.cargar();
             this.render(); //luego de crear elemento llamamos al render (buena practica)
 
-            app.elemento_collention.on("add", this.renderSentencia, this); //actualiza la vista cada agregado.
+            app.elemento_collention.on("add", this.renderElemento, this); //actualiza la vista cada agregado.
                                                                             //actualiza la vista cada eliminado y otro para edit.
             this.event_aggregator.bind("event_element:add_Element", this.addNewElemento);
         },
