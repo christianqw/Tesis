@@ -20,6 +20,14 @@ var app = app || {};
         top: 0,
         att1:"chico",
         att2:"despierto"
-    }
+    },
+
+		//function editing position
+		stop_drop: function ( new_left, new_top ) {
+			this.save({
+				left: new_left,
+				top: new_top
+			});
+		}
 	});
 })();
