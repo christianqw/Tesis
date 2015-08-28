@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC >
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+       <!-- Documento HTML con caracteres UTF8 -->
+       <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+       <title>Calculadora AJAX</title>
+
+       <!-- Clases CSS internas -->
+	   <style type="text/css">
+	   #mensaje                                      /* Mensaje de error */
+		 {
+			   width: 100%;                            /* Ancho */
+			   margin-top: 20px;                       /* Margen superior */
+			   margin-bottom: 30px;                    /* Margen inferior */
+			   color: #ff0e0e;                         /* Color del texto (foreground) */
+			   font-size: 12px;                        /* Tamaño de la fuente */
+		 }
+		  </style>
+
+       <!-- Referencias a Javascripts externos -->
+
+       <!-- Codigo Javascript interno -->
+	   
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	   
+	   <script type='text/javascript'>
+		/* Codigo a ejecutarse tan pronto como la
+		   pagina ha sido cargada por el navegador */
+
+		$(document).ready(function ()
+		{
+			/* Asociar el evento de clic del boton 'igual'
+			   con la logica del negocio de la aplicacion */
+
+			$('#igual').click(function()
+			{
+				procesar();
+			});
+			
+			$('#ejecutar').click(function()
+			{
+				//procesarJson();
+				generarJson();
+			});
+			
+		});
+		
+		function generarJson(){
+		
+			alert($.param($('#formulario2').serializeArray()));
+			alert($.param($('#formulario2').serializeArray()).toString());
+		}
+		
+		function procesarJson()
+		{		
+			$.ajax ({
+					type: 'POST',									/* Metodo utilizado para el requerimiento */
+					url: "localhost:8080/webeditor/spring/json/",   /* URL a invocar asincronamente */
+					data: JSON.stringify(contents),					/* Informacion local a enviarse con el requerimiento */
+					dataType: "json"
+					});
+				  
+			
+		}  // Fin de la funcion procesarJson
+		
+		function procesar()
+		{
+			var datos_enviados = $('#formulario_original').serialize();
+		
+			$.ajax ({
+				url: 	'calcular.php',                   /* URL a invocar asincronamente */
+				type:   'post',                           /* Metodo utilizado para el requerimiento */
+				data: 	datos_enviados,     /* Informacion local a enviarse con el requerimiento */
+		/* Que hacer en caso de ser exitoso el requerimiento */
+				success: 	function(request, settings)
+				{
+					/* Cambiar el color del texto a verde */
+					$('#mensaje').css('color', '#0ab53a');
+					/* Mostrar un mensaje informando el exito sucedido */
+					$('#mensaje').html("Operacion realizada exitosamente");
+					/* Mostrar el resultado obtenido del calculo solicitado */
+					$('#resultado').html(request);
+				},
+				/* Que hacer en caso de que sea fallido el requerimiento */
+				error: 	function(request, settings)
+				{
+					/* Cambiar el color del texto a rojo */
+					$('#mensaje').css('color', '#ff0e0e');
+					/* Mostrar el mensaje de error */
+					$('#mensaje').html('Error: ' + request.responseText);
+					/* Limpiar cualquier resultado anterior */
+					$('#resultado').html('Error');
+				}
+			});  // Fin de la invocacion al metodo ajax
+		}  // Fin de la funcion procesar
+
+</script>
+	</head>
+    <body>
+        <div id='pagina'>
+			<div id='mensaje'>&nbsp;</div>
+
+			<form id='formulario_original' action='#' method='post'>
+				<input type='text' id='operando1' name='operando1' value='' size='4' maxlength='4' />
+
+				<select id='operador' name='operador'>
+					<option value='SU'>+</option>
+					<option value='RE'>-</option>
+					<option value='MU'>*</option>
+					<option value='DI'>/</option>
+				</select>
+
+				<input type='text' id='operando2' name='operando2' value='' size='4' maxlength='4' />
+
+				<input type='button' id='igual' value='=' />
+
+				<span id='resultado'>&nbsp;</span>
+			</form>
+			
+			<form id='formulario2' action='#' method='post'>
+				<input type='text' id='elem1' name='elem1' value=''/>
+
+				<select id='op' name='elem2'>
+					<option value='SU'>+</option>
+					<option value='RE'>-</option>
+					<option value='MU'>*</option>
+					<option value='DI'>/</option>
+				</select>
+
+				<input type='text' id='elem3' name='elem3' value='' />
+
+				<input type='button' id='ejecutar' value='ejecutar' />
+
+				<span id='respuesta'>&nbsp;</span>
+				<span id='respuesta2'>&nbsp;</span>
+				
+			</form>
+			
+		 </div>
+    </body>
+</html>

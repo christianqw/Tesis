@@ -1,3 +1,3 @@
-Dwe(x, z, PP(o, p, q))
+Dwe(x)
  
  

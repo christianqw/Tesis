@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script >
+//Crear un boton dentro del cuerpo.
+
+window.onload = function(){
+	var button = document.createElement("button");
+	button.innerHTML = "createElement";
+	button.setAttribute("id", "btn");
+
+	//lo agregamos al cuerpo
+	document.body.appendChild(button);
+
+	/*//si lo queremos agregar dentro del div
+	document.getElementById("contenedor").appendChild(button);
+
+	*/
+
+
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		//alert("OK");
+		document.body.removeChild(btn); //pasamos por parametro el elemento a eliminar
+	};
+
+
+
+}
+	
+
+</script>
+
+
+
+</head>
+<body>
+<div id="contenedor"></div>
+</body>
+</html>

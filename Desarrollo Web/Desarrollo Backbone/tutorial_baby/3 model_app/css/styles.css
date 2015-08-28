@@ -1,0 +1,75 @@
+#marco_elementos{
+	  margin-bottom: 5px;
+}
+
+#lista_elementos{
+	  margin-bottom: 0;
+}
+
+#lista_atributos{
+	  margin-bottom: 0;
+}
+
+#lista_sentencias{
+	padding-left: 0px;
+	list-style-type: none;
+}
+
+.item_sentencia{
+	margin-bottom: 2px;
+}
+
+.imput_icon_center{
+    padding: 9px 11px;
+}
+
+.contenedor_modelo{
+  overflow: auto;
+	height: auto;
+	width: 100%;
+	position: relative;
+
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 9px;
+}
+
+#imagen_fondo{
+	z-index: -1;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.btn_atributo {  //si son menus con check
+    padding: 1px 5px;
+    border-radius: 0px;
+}
+.atributo{
+  padding: 3px 4px;
+  height: 26px;
+}
+
+#linea{
+  margin: 5px;
+}
+
+li.destroy {
+  display: block;
+}
+li .destroy:hover {
+  color: #af5b5e;
+}
+li .destroy {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  margin: auto 0;
+  font-size: 30px;
+  color: #cc9a9a;
+  margin-bottom: 11px;
+  transition: color 0.2s ease-out;
+}

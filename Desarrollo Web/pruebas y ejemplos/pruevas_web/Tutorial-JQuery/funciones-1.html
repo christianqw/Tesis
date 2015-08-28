@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script> 
+
+<script>
+
+$.mensaje = function(saluda){
+	if(saluda == undefined){
+		saluda = "hola mundo";
+	}
+	return saluda;
+}
+
+$(function(){
+	$("#contenedor-1").text($.mensaje('hola amigo'));
+	$("#contenedor-1").append($.mensaje());
+
+
+});
+</script>
+</head>
+<body>
+
+<div id="contenedor-1"></div>
+
+</body>
+</html>

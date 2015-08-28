@@ -1,0 +1,15 @@
+[0421/170417:ERROR:tcp_listen_socket.cc(72)] Could not bind socket to 127.0.0.1:9236
+[0421/170426:ERROR:connection.cc(733)] sqlite error 5, errno 33: database is locked
+[0421/170429:ERROR:rankings.cc(775)] Inconsistent LRU.
+[0421/170429:ERROR:backend_impl.cc(1187)] Critical error found -8
+[0421/170429:ERROR:entry_impl.cc(942)] Failed to save user data
+[0421/170429:ERROR:entry_impl.cc(942)] Failed to save user data
+[0421/170429:ERROR:rankings.cc(775)] Inconsistent LRU.
+[0421/170429:ERROR:backend_impl.cc(1187)] Critical error found -8
+[0421/170429:ERROR:entry_impl.cc(942)] Failed to save user data
+[0421/170429:ERROR:entry_impl.cc(942)] Failed to save user data
+[0421/170430:ERROR:cache_util_win.cc(43)] Unable to move the cache: 5
+[0421/170430:ERROR:backend_impl.cc(137)] Unable to move cache folder C:\Users\Chris\AppData\Roaming\Adobe\Reflow\cef_data to C:\Users\Chris\AppData\Roaming\Adobe\Reflow\old_cef_data_000
+[0421/170432:ERROR:cache_util_win.cc(43)] Unable to move the cache: 5
+[0421/170432:ERROR:backend_impl.cc(137)] Unable to move cache folder C:\Users\Chris\AppData\Roaming\Adobe\Reflow\cef_data to C:\Users\Chris\AppData\Roaming\Adobe\Reflow\old_cef_data_000
+[0421/170432:ERROR:backend_impl.cc(2157)] Corrupt Index file

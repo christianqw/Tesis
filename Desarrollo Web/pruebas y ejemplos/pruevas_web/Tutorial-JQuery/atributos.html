@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script> 
+
+<script>
+$(function(){
+	$("#btn_1").on("click", function(){//obtener los valores de los atributos
+
+		var id = $("#contenedor").attr("id");
+		var style = $("#contenedor").attr("style");
+		$("#resultado").text("id: "+ id +"  Style: " + style);
+	});
+
+	$("#btn_2").on("click", function(){//obtener los valores de los atributos
+		$("#contenedor").attr("style", "width: 100px; height: 300px; background : orange");
+	});
+
+	$("#btn_3").on("click",function(){//Eliminar Atributo
+		$("#contenedor").removeAttr("style");
+	});
+
+	$("#btn_4").on("click", function(){//crear atributo
+		if($("#contenedor").attr("mover") == "true"){
+			$("#contenedor").css({position:'relative'}).animate({left:"+=100"}).animate({left:"-=100"});
+		}
+	});
+
+});
+</script>
+</head>
+<body>
+
+<div id="contenedor" style= "width : 200px; height: 100px; background: black" mover="true"></div>
+<button type="button" id="btn_1">Obtener valores</button>
+<button type="button" id="btn_2">Cambiar valor Style</button>
+<button type="button" id="btn_3">Eliminar Style</button>
+<button type="button" id="btn_4">Mover elemento modificando mover</button>
+<div id="resultado"></div>
+</body>
+</html>

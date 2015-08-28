@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script> 
+
+<style type="text/css">
+	#caja{ /*Definimos dimensiones fijas y scroll */
+		width: 250px;
+		height: 250px;
+		overflow: scroll;
+	}
+</style>
+
+<script>
+$(function(){
+		$(window).resize(function(){
+			var ancho = $(this).width();
+			var alto = $(this).height();
+			$("#dimensiones").html("Ancho: " + ancho + " : " + "Alto: " + alto ); //diseños adaptativos
+		});
+
+		$("#caja").scroll(function(){
+			//alert("Estas moviendo el scroll de la caja");
+			$("#posicion").html("Psicion del Scroll: " + $(this).scrollTop());
+		});
+	
+});
+
+</script>
+</head>
+<body>
+
+
+<div id="dimensiones"></div>
+
+
+<div id="posicion"></div>
+<div id="caja">El diseño web se basa en estándares. Sabemos reconocer un blog en cuando entramos en uno, una tienda online, una página corporativa o un medio de comunicación como un periódico.En general, estos estándares se basan en criterios de usabilidad y por retroalimentación o copia directa. 
+Pasa como con el iPhone: Se encuentra un interfaz exitoso para interactuar con un producto e inmediatamente surgen productos que parecen cortados por el mismo patrón. 
+No son copias, pero son respuestas similares a una pregunta que el primero modelo ha hecho obvia.Este motivo es por eso por lo que casi cualquier e-commerce de ropa está a medio camino entre Zara y Asos, o por qué el 90% de e-commerces parecen haber sido cortados por el mismo patrón que cualquiera de las versiones que ha tenido Amazon en los últimos años.</div>
+
+</body>
+</html>

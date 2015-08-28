@@ -1,0 +1,206 @@
+/* This code is only meant for previewing your Reflow design. */
+.primaryContainer {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%;
+    width: 100%;
+}
+
+#box {
+    float: left;
+    height: 33px;
+    margin-left: 1.943635%;
+    margin-top: 54px;
+    clear: none;
+    width: 94.94655%;
+    background-color: rgb(165, 164, 164);
+}
+
+#box1 {
+    float: left;
+    height: 284px;
+    margin-left: 1.943635%;
+    margin-top: 13px;
+    clear: both;
+    width: 5.389031%;
+    background-color: rgb(255, 105, 105);
+}
+
+#box2 {
+    float: left;
+    height: 284px;
+    margin-left: 1.199587%;
+    margin-top: 13px;
+    clear: none;
+    width: 88.357932%;
+    background-color: rgb(62, 151, 255);
+}
+
+#box3 {
+    float: left;
+    height: 235px;
+    margin-left: 1.943635%;
+    margin-top: 10px;
+    clear: both;
+    width: 77.198737%;
+    background-color: rgb(0, 255, 98);
+    margin-right: 0%;
+}
+
+#box4 {
+    float: left;
+    height: 235px;
+    margin-left: 1.421283%;
+    margin-top: 10px;
+    clear: none;
+    width: 16.288569%;
+    background-color: rgb(255, 167, 0);
+}
+
+#input1 {
+    float: left;
+    height: 24px;
+    font-size: 1em;
+    margin-left: 9.471427%;
+    margin-top: 7px;
+    clear: both;
+    width: 84.582744%;
+}
+
+#input {
+    float: left;
+    height: 24px;
+    font-size: 1em;
+    margin-left: 9.611261%;
+    margin-top: 141px;
+    clear: none;
+    width: 84.582746%;
+    margin-right: 0%;
+}
+
+#input2 {
+    float: left;
+    height: 24px;
+    font-size: 1em;
+    margin-left: 9.611261%;
+    margin-top: 7px;
+    clear: both;
+    width: 84.582746%;
+    margin-right: 0%;
+}
+
+@media only screen and (max-width: 711px) {
+    #box4 {
+        margin-top: 10px;
+        margin-left: 1.199895%;
+        clear: none;
+        width: 21.248681%;
+    }
+
+    #box3 {
+        width: 72.455169%;
+    }
+
+    #input1 {
+        margin-top: 8px;
+        margin-left: 6.009516%;
+        clear: both;
+        width: 90.566818%;
+    }
+
+    #input2 {
+        margin-top: 6px;
+        margin-left: 6.009516%;
+        clear: both;
+        width: 90.566818%;
+        height: 24px;
+    }
+
+    #input {
+        margin-top: 137px;
+        margin-left: 6.009516%;
+        clear: none;
+        width: 90.928837%;
+    }
+
+    #box2 {
+        margin-top: 13px;
+        margin-left: 1.687764%;
+        clear: none;
+        width: 86.667106%;
+    }
+
+    #box1 {
+        width: 6.588432%;
+    }
+}
+
+@media only screen and (max-width: 401px) {
+    #box2 {
+        margin-top: 7px;
+        margin-left: 2.13139%;
+        clear: both;
+        height: 247px;
+        width: 94.934539%;
+    }
+
+    #box1 {
+        height: 36px;
+        width: 94.942332%;
+        margin-top: 7px;
+        margin-left: 2.13139%;
+        clear: both;
+    }
+
+    #box3 {
+        margin-top: 7px;
+        margin-left: 2.13139%;
+        clear: both;
+        height: 129px;
+        width: 94.934539%;
+    }
+
+    #box4 {
+        margin-top: 8px;
+        margin-left: 2.13139%;
+        clear: both;
+        height: 101px;
+        width: 94.938435%;
+        margin-right: 0%;
+    }
+
+    #input {
+        margin-top: 10px;
+        margin-left: 60.652575%;
+        clear: none;
+        height: 24px;
+        width: 37.406115%;
+        margin-right: 0%;
+    }
+
+    #input1 {
+        margin-top: 7px;
+        margin-left: 60.652575%;
+        clear: both;
+        height: 24px;
+        width: 37.562077%;
+        margin-right: 0%;
+    }
+
+    #input2 {
+        margin-top: 6px;
+        margin-left: 60.915247%;
+        clear: both;
+        height: 24px;
+        width: 37.406115%;
+        margin-right: 0%;
+    }
+
+    #box {
+        margin-top: 11px;
+        margin-left: 2.135287%;
+        clear: none;
+    }
+}
+

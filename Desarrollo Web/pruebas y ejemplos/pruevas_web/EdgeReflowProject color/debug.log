@@ -1,0 +1,5 @@
+[0421/170442:ERROR:backend_impl.cc(2157)] Corrupt Index file
+[0421/170442:ERROR:cache_util_win.cc(43)] Unable to move the cache: 5
+[0421/170442:ERROR:backend_impl.cc(137)] Unable to move cache folder C:\Users\Chris\AppData\Roaming\Adobe\Reflow\cef_data to C:\Users\Chris\AppData\Roaming\Adobe\Reflow\old_cef_data_000
+[0421/170442:ERROR:backend_impl.cc(224)] Unable to create cache
+[0421/171824:ERROR:ipc_channel_win.cc(401)] pipe error: 232

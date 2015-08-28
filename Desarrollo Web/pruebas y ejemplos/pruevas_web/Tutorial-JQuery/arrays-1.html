@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script> 
+
+<script>
+$(function(){
+	var array_1 = [1,2,3,4,5,6, 7, 8, 9];
+
+	$.grep(array_1, function(value, index){ //recorre completamente un arreglo
+		$("#array_1").append("Index: "+ index + "  Value: " + value); //GREGAMOS AL DIV.
+	});
+
+	$("#lista li").each(function(index){//recorrer estructuras definidas 
+		$("#array_2").append("Index: " + index + "  texto: "+ $(this).text() + "<br>" );
+	});
+
+	var array_3 = ["pepe", "ntonio", "raul"];
+	$.each(array_3, function(index, value){//otra forma de recorre los arreglos
+		$("#array_3").append("Index , Value : (" + index +" , " +value+  ")<br>" )
+	});
+
+	//inArray (te dice sobre la existencia de uno o mas elemento dentro del arreglo).
+
+	var elementos = ["azul", "verde", "rojo", "azul"];
+	var color = "verde";
+
+	if($.inArray(color, elementos) > -1){
+		alert("El color" + color + "ha sido encontrado  - value: "+ $.inArray(color, elementos));
+	}else{
+		alert("El color" + color + "ha sido encontrado - value: "+ $.inArray(color, elementos));
+	}
+
+
+	
+});
+</script>
+</head>
+<body>
+
+<div id="array_1"></div>
+
+<ul id="lista"> 
+<li>uno</li>
+<li>dos</li>
+<li>tres</li>
+<li>cuatro</li>
+</ul>
+
+<div id="array_2"></div>
+<br><br>
+<div id="array_3"></div>
+
+</body>
+</html>

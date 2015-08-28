@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script >
+
+    window.onload = function(){
+        var btn = document.getElementById("btn");
+        btn.onclick = function () {
+            var arr_imagen = document.getElementById("imagen").files;
+            //alert(arr_imagen.length);
+            if (arr_imagen.length == 0){
+                alert("no posee seleccionado ningun archivo");
+                return;
+            }else{
+                for(var i = 0 ; i<arr_imagen.length; i++){
+                    alert(arr_imagen[i].type); //muestra el tipo del archivo
+                    if (arr_imagen[i].type != "image/jpeg"){
+                        alert("El archivo no es un JPEG"); //arr_imagen.name
+                        return;
+                    }
+
+                    //verificaciones de tamaño.
+                    if (arr_imagen[i].size > 1024 * 1024*1){
+                        alert("La imagen pesa mas que i MB");//arr_imagen.name
+                        return;
+                    }
+                }
+            }
+
+            document.formulario.submit();
+
+        }
+    }
+
+</script>
+
+
+
+</head>
+<body>
+
+<form method="post" name="formulario" enctype="multipart/from-data"></form>
+Subir imagen: <input type="file" multiple name="imagen" id="imagen">
+<button type="button" id="btn">Subir</button>
+</body>
+</html>

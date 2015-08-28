@@ -1,0 +1,207 @@
+<html>
+<head>
+<title>Formulario con jQuery y JavaScript</title>
+<style type="text/css">
+body{
+    margin:0px;    
+    }
+.fuentes:hover
+    {
+        background-color:#CF9;    
+    }
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"> </script>
+<script type="text/javascript"> 
+$(document).ready(function(){
+    $("body").hide();
+    $("html").css("background-color","black");
+    alert ("Gracias por visitar la paginan ttDanijazzero");
+    $("html").css("background-color","white");
+    $("body").show(100);    
+    });
+$(document).ready(function(){
+    //ordenes de ocultar los elementos que luego vamos a mostrar
+    $("#mex").hide();
+    $("#col").hide();
+    $("#ven").hide();
+    $("#arg").hide();
+    //foco/sinfoco metodo para el Nombre
+    $("#textonombre").focus(function(){
+        $(this).css("color","green");
+        $(this).css("background-color","#FFFFA0");
+        });
+    $("#textonombre").focusout(function(){
+        $(this).css("color","black");
+        $(this).css("background-color","#FFFFFF");
+    });
+    //lo mismo pero para apellido
+    $("#textoapellido").focus(function(){
+        $(this).css("color","green");
+        $(this).css("background-color","#FFFFA0");
+        });
+    $("#textoapellido").focusout(function(){
+        $(this).css("color","black");
+        $(this).css("background-color","#FFFFFF");
+    });
+    //lo mismo para Email
+    $("#textoemail").focus(function(){
+        $(this).css("color","green");
+        $(this).css("background-color","#FFFFA0");
+        });
+    $("#textoemail").focusout(function(){
+        $(this).css("color","black");
+        $(this).css("background-color","#FFFFFF");
+    });
+    //selectores para paises
+    //Arg
+    $("#Argentina").click(function(){
+        $("#arg").show();
+        $("#ven").hide();
+        $("#mex").hide();
+        $("#col").hide();
+        });
+    //Mex
+    $("#Mexico").click(function(){
+        $("#arg").hide();
+        $("#ven").hide();
+        $("#mex").show();
+        $("#col").hide();
+        });
+    //Ven    
+    $("#Venezuela").click(function(){
+        $("#arg").hide();
+        $("#ven").show();
+        $("#mex").hide();
+        $("#col").hide();
+        });    
+    //Col
+    $("#Colombia").click(function(){
+        $("#arg").hide();
+        $("#ven").hide();
+        $("#mex").hide();
+        $("#col").show();
+        });
+}); 
+</script>
+
+
+</head>
+
+<body>
+
+<div id="principal" align="center">
+
+<table width="600" border="0">
+  <tr>
+    <td width="190">Nombre:</td>
+    <td width="271" align="center"> <input type="text" value="" id="textonombre" /></td>
+    <td width="125"></td>
+  </tr>
+  <tr>
+    <td>Apellido:</td>
+    <td align="center"> <input type="text" value="" id="textoapellido" /> </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td align="center"><input type="text" value="" id="textoemail"/></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Pais</td>
+    <td align="center">
+   <div id="paises" >
+                <img id="Argentina" src="http://www.lopesdasilva.adv.br/imagens/ico_argentina.gif" />
+                <img id="Mexico" src="http://www.sitekiosk.com/Images/Flags/mexico_ico.gif" width="31" height="19" />
+                <img id="Venezuela" src="http://www.otca.org.br/destinoamazonia/es//templates/ada2009/images/ico_venezuela.gif" />
+                <img id="Colombia" src="http://www.oas.org/imgs/flags/small/sm_colombia.jpg" />
+    
+    </div> 
+    </td>
+    <td> <div id="modificable">
+        <p id="arg"> Argentina </p>  
+        <p id="mex"> Mexico </p>
+        <p id="col"> Colombia </p>
+        <p id="ven"> Venezuela </p>
+    </div> </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td align="center"> </td>
+    <td> </td>
+  </tr>
+</table>
+<script type="text/javascript"> 
+function resetChanges(){
+    $("body").css("background","white");
+    $("body").css("color","black");
+    }
+</script>
+<p>configuraciones de formulario <input type="button" onclick="resetChanges()" value="resetear" /></p>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#negro").click(function(){
+    $("body").css("background","black");
+    });
+    $("#blanco").click(function(){
+    $("body").css("background","white");
+    });
+    $("#rojo").click(function(){
+    $("body").css("background","red");
+    });
+    $("#verde").click(function(){
+    $("body").css("background","green");
+    });
+});
+</script>
+<p>color de fondo<br>
+<img id="negro" src="http://www.xieldecohogar.com/modelos/RIO/colores/tn_Negro.jpg" width="20" height="20" />
+<img id="blanco" src="http://www2.dupont.com/Powder_Coatings/es_CO/assets/images/lean_colors/blanco-brill-ep9000-p.jpg" width="20" height="20"/>
+<img id="verde" src="http://4.bp.blogspot.com/_4iVtwkKqhF4/S3xvXegADvI/AAAAAAAABwk/X0QfwPi9WXk/s400/pensa-verde.ico" width="20" height="20" />
+<img id="rojo" src="https://sites.google.com/site/bloglapsus/base/rojo.gif" width="20" height="20" />
+</p>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#arial").click(function(){
+    $("*").css("font-family","Arial");
+        });
+    $("#verdana").click(function(){
+    $("*").css("font-family","Verdana");
+        });
+    $("#georgia").click(function(){
+    $("*").css("font-family","Georgia");
+        });
+    });
+</script>
+<p>tipo de tipografia <br>
+<table width="300" border="0">
+  <tr>
+    <td align="center"><div class="fuentes" id="arial" style="font-family:Arial, Helvetica, sans-serif"> Arial </div></td>
+  </tr>
+  <tr>
+    <td align="center"><div class="fuentes" id="verdana" style="font-family:Verdana, Geneva, sans-serif"> Verdana</div></td>
+  </tr>
+  <tr>
+    <td align="center"><div class="fuentes" id="georgia" style="font-family:Georgia, 'Times New Roman', Times, serif"> Georgia </div></td>
+  </tr>
+</table>
+
+</p>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#negrofont").click(function(){
+        $("body").css("color","black");
+        });
+    $("#blancofont").click(function(){
+        $("body").css("color","white");
+        });
+    });
+</script>
+<p> Color de fuente <br>
+<img id="negrofont" src="http://www.xieldecohogar.com/modelos/RIO/colores/tn_Negro.jpg" width="20" height="20" />
+<img id="blancofont" src="http://www2.dupont.com/Powder_Coatings/es_CO/assets/images/lean_colors/blanco-brill-ep9000-p.jpg" width="20" height="20"/>
+</p>
+</div>
+
+</body>
+</html>

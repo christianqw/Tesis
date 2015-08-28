@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script> 
+
+<script>
+$(function(){
+	$("#campo").keypress(function(e){
+		//$("#resultado").html(e.charCode);
+		//$("#resultado2").html(String.fromCharCode(e.charCode));
+
+		if ($(this).val() == "hola"){
+			$("#resultado").html("Has escrito la palabra Hola");
+		}
+	});
+
+	$("#soltar").keyup(function(){
+		alert("Soltaste una letr");
+
+	});
+});
+</script>
+</head>
+<body>
+
+<input type="text" id="campo">
+
+<div id="resultado"></div>
+
+<input type="text" id="soltar">
+
+<div id="resultado2"></div>
+
+</body>
+</html>

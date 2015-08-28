@@ -1,0 +1,39 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script>
+	temporizador = setTimeout("reloj()", 1000);
+	//se ejecuta solo una vez!
+
+	function reloj(){
+		var tiempo = new Date();
+		var hours = tiempo.getHours();
+		var minus = tiempo.getMinutes();
+		var seconds = tiempo.getSeconds();
+		document.getElementById("hours").innerHTML = hours;
+		//se utiliza para mostrar los valores
+		document.getElementById("minutes").innerHTML = minus;
+		document.getElementById("seconds").innerHTML = seconds;
+		temporizador = setTimeout("reloj()", 1000);//forzamos el ejecutarlo por que esta dentro de la funcion
+		
+		//se agrega con unos if, para agregr que sean de 2 digitos siempre.
+
+	}
+
+	function stop(){
+		clearTimeout(temporizador);
+	}
+
+	function play(){
+		temporizador = setTimeout("reloj()", 1000);
+	}
+</script>
+</head>
+<body>
+<span id="hours"></span> : <span id="minutes"></span> : <span id="seconds"></span>
+<button type="button" onclick="stop()">Detener Hora</button>
+<button type="button" onclick="play()">Play</button>
+</body>
+</html>

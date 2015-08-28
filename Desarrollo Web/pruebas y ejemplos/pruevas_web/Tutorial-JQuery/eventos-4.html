@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script> 
+
+<script>
+$(function(){
+		$("#btn_1").on("click", function(){ //agrega un evento.
+			alert("Evento click funcionando");
+		});
+
+		$("#btn_2").on("click", function(){
+			$("#btn_1").off("click"); //elimina un evento.
+		});
+
+		$("#btn_3").one("click", function(){
+			alert("Evento solo una vez");
+		});
+	
+});
+
+</script>
+</head>
+<body>
+
+<input type="button" id="btn_1" value="HAz click aquí">
+
+<input type="button" id="btn_2" value="Eliminar Evento">
+
+<input type="button" id="btn_3" value="Evento por una sola vez">
+
+<div id="dimensiones"></div>
+
+
+</body>
+</html>

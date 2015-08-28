@@ -1,0 +1,196 @@
+/* This code is only meant for previewing your Reflow design. */
+.primaryContainer {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%;
+    width: 100%;
+    max-width: none;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+#box {
+    float: left;
+    height: 30px;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    background-color: rgb(172, 172, 172);
+}
+
+#Image {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.80372%;
+    margin-top: 3px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    margin-right: 0%;
+}
+
+#Archivo {
+    float: left;
+    font-size: 0.8em;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1em;
+    margin-left: 1.5%;
+    margin-top: 0.6%;
+    clear: none;
+    min-height: 0px;
+    font-family: tahoma;
+    color: rgb(255, 255, 255);
+    max-width: none;
+    min-width: 27px;
+    margin-right: 0px;
+    visibility: visible;
+    overflow: visible;
+    padding: 4px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+#text {
+    float: left;
+    font-size: 0.8em;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1em;
+    margin-left: 0%;
+    margin-top: 0.59979349%;
+    clear: none;
+    min-height: 0px;
+    font-family: tahoma;
+    color: rgb(255, 255, 255);
+    max-width: none;
+    min-width: 27px;
+    margin-right: 0px;
+    overflow: visible;
+    padding: 4px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-width: 1px;
+    border-right-style: solid;
+    display: block;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+#text1 {
+    float: left;
+    font-size: 0.8em;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1em;
+    margin-left: 0%;
+    margin-top: 0.59979349%;
+    clear: none;
+    min-height: 0px;
+    font-family: tahoma;
+    color: rgb(255, 255, 255);
+    max-width: none;
+    min-width: 27px;
+    margin-right: 0px;
+    overflow: visible;
+    padding: 4px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-width: 1px;
+    border-right-style: solid;
+    display: block;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+#text2 {
+    float: left;
+    font-size: 0.8em;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1em;
+    margin-left: 0%;
+    margin-top: 0.59979349%;
+    clear: none;
+    min-height: 0px;
+    font-family: tahoma;
+    color: rgb(255, 255, 255);
+    max-width: none;
+    min-width: 27px;
+    margin-right: 0px;
+    overflow: visible;
+    padding: 4px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-width: 1px;
+    border-right-style: solid;
+    display: block;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+#image {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 2.999714%;
+    margin-top: 5.234375px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image1 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.5%;
+    margin-top: 5.234375px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image2 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.5%;
+    margin-top: 6.84375px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image3 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.438891%;
+    margin-top: 6.84375px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+

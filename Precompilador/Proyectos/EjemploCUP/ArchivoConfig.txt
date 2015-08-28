@@ -16,10 +16,11 @@
 	"Claves":["IGUAL"],
 	"Parametro":[1,-1],
 	"Atributo":["Tipo","circulo"]}],
+
 "Funcion":[
 		{"Rename":"ELMASLEJANO","Class":"ElMasLejano"},
 		{"Rename":"CERCA","Class":"ElMasCercano"},
-		{"Rename":"NULL","Class":"ElMasArriva"}],
+		{"Rename":"NULL","Class":"ElMasArriba"}],
 
 "Elemento":
 		{"Dominio":"Figura",

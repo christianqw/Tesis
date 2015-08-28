@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+
+<title>Fecha con jQuery UI</title>
+
+	<link rel="stylesheet" href="jQueryUI-1.11.2/jquery-ui.min.css">
+	<script src="jQueryUI-1.11.2/external/jquery/jquery.js"></script>
+	<script src="jQueryUI-1.11.2/jquery-ui.min.js"></script>
+
+	<style type="text/css">
+		body { /*estilo del tamaño de la fuente*/
+			font-size: 0.875em;
+		}
+		 /* dimensiones de elemento id=draggable */
+		 #draggable { width: 150px; height: 150px; padding: 0.5em; }
+		".icon_button" { width: 20px; height: 20px;}
+	</style>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+		   $("#campofecha").datepicker();//utilizamos el ID
+		   $(".ui-widget-content").draggable();//utilizamos en tipo de Class
+		   //$("#draggable").draggable(); //utilizamos en ID
+		   $("#myTestObjectTag").draggable();
+		});
+
+	</script>
+
+</head>
+<body>
+
+   Fecha: <input type="text" name="fecha" id="campofecha">
+
+   <div id="draggable" class="ui-widget-content"><p>Arrastrame</p></div>
+   <img id="imagen" class="ui-widget-content" src="imgs/vaca.svg">
+<!-- Los objetos no se convienten en gragables, ademas quedan en la capa superior siempre. -->
+    <object type="image/svg+xml" id="myTestObjectTag" 
+    class="icon_button" data="imgs/pato.svg"></object>
+
+</body>
+
+
+
+</html>

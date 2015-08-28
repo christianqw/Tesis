@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script>
+
+	window.onload = function(){
+		var btn = document.getElementById("btn");
+		btn.onclick = function(){
+			var arr_clase = document.getElementsByClassName("Clase");
+			for (var i = arr_clase.length - 1; i >= 0; i--) {
+				arr_clase[i].style.backgroundColor = "#000000"; 
+				arr_clase[i].style.color = "#FFFFFF"; //tambien toma "white"
+			};
+		}
+	}
+</script>
+
+</head>
+<body>
+	<div class="Clase">Hola Mundo</div>
+	<span class="Clase">getElementByClassName</span>
+	<strong class="Clase">Aprendiendo JavaScrip</strong>
+	<button id="btn" type="button">Cambiar estilos CSS</button>
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+/* This code is only meant for previewing your Reflow design. */
+.primaryContainer {
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100%;
+    width: 100%;
+    max-width: none;
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+#box {
+    float: left;
+    height: 30px;
+    margin-left: 0%;
+    margin-top: 0px;
+    clear: none;
+    width: 100%;
+    background-color: rgb(172, 172, 172);
+}
+
+#Image {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.80372%;
+    margin-top: 3px;
+    clear: none;
+    color: rgb(0, 0, 0);
+    margin-right: 0%;
+}
+
+#Archivo {
+    float: left;
+    font-size: 0.8em;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1em;
+    margin-left: 1.5%;
+    margin-top: 0.6%;
+    clear: none;
+    min-height: 0px;
+    font-family: tahoma;
+    color: rgb(255, 255, 255);
+    max-width: none;
+    min-width: 27px;
+    margin-right: 0px;
+    visibility: visible;
+    overflow: visible;
+    padding: 4px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+#text {
+    float: left;
+    font-size: 0.8em;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1em;
+    margin-left: 0%;
+    margin-top: 0.59979349%;
+    clear: none;
+    min-height: 0px;
+    font-family: tahoma;
+    color: rgb(255, 255, 255);
+    max-width: none;
+    min-width: 27px;
+    margin-right: 0px;
+    overflow: visible;
+    padding: 4px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-width: 1px;
+    border-right-style: solid;
+    display: block;
+}
+
+#text1 {
+    float: left;
+    font-size: 0.8em;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1em;
+    margin-left: 0%;
+    margin-top: 0.59979349%;
+    clear: none;
+    min-height: 0px;
+    font-family: tahoma;
+    color: rgb(255, 255, 255);
+    max-width: none;
+    min-width: 27px;
+    margin-right: 0px;
+    overflow: visible;
+    padding: 4px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-width: 1px;
+    border-right-style: solid;
+    display: block;
+}
+
+#text2 {
+    float: left;
+    font-size: 0.8em;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-weight: 700;
+    line-height: 1em;
+    margin-left: 0%;
+    margin-top: 0.59979349%;
+    clear: none;
+    min-height: 0px;
+    font-family: tahoma;
+    color: rgb(255, 255, 255);
+    max-width: none;
+    min-width: 27px;
+    margin-right: 0px;
+    overflow: visible;
+    padding: 4px;
+    border-right-color: rgb(255, 255, 255);
+    border-right-width: 1px;
+    border-right-style: solid;
+    display: block;
+}
+
+#image {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 2.999714%;
+    margin-top: 5.234375px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image1 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.5%;
+    margin-top: 5.234375px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image2 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.5%;
+    margin-top: 6.84375px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image3 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.438891%;
+    margin-top: 6.84375px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#Box {
+    float: left;
+    height: 37.9951171875em;
+    margin-left: 0%;
+    margin-top: 0.5%;
+    clear: both;
+    width: 43.8173828125em;
+    background-color: rgb(239, 239, 239);
+    border-right-color: rgb(193, 188, 188);
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#Box1 {
+    float: left;
+    height: 46px;
+    margin-left: 1.426375%;
+    margin-top: 1%;
+    clear: none;
+    width: 680px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#box1 {
+    float: left;
+    height: 2.875em;
+    margin-left: 0.69852941%;
+    margin-top: 0%;
+    clear: none;
+    width: 19.4375em;
+    display: block;
+    margin-right: 0%;
+    border-right-color: rgb(172, 172, 172);
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+#box2 {
+    float: left;
+    height: 2.875em;
+    margin-left: 0.7%;
+    margin-top: 0%;
+    clear: none;
+    width: 16.625em;
+    display: block;
+    margin-right: 0%;
+    border-right-color: rgb(172, 172, 172);
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+#box3 {
+    float: left;
+    height: 2.875em;
+    margin-left: 0.7%;
+    margin-top: 0%;
+    clear: none;
+    width: 5.25em;
+    display: block;
+    margin-right: 0%;
+}
+
+#image4 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.145498%;
+    margin-top: 0.96463023%;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image5 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 3.125%;
+    margin-top: 0.96463023%;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image6 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 3.13%;
+    margin-top: 0.96463023%;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image7 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 3.13%;
+    margin-top: 0.96463023%;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image8 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.862077%;
+    margin-top: 3px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#image9 {
+    float: left;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-left: 1.703477%;
+    margin-top: 3px;
+    clear: none;
+    color: rgb(0, 0, 0);
+}
+
+#text3 {
+    float: left;
+    font-size: 1.2em;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-weight: 900;
+    line-height: 1em;
+    margin-left: 23.865327%;
+    margin-top: 15.15625px;
+    clear: none;
+    min-height: 0px;
+    background-color: rgb(193, 188, 188);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    font-family: tahoma;
+}
+
+#text4 {
+    float: left;
+    font-size: 1.2em;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-weight: 900;
+    line-height: 1em;
+    margin-left: 16.220238%;
+    margin-top: 15.15625px;
+    clear: none;
+    min-height: 0px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    font-family: tahoma;
+    display: block;
+    background-color: rgb(193, 188, 188);
+    margin-right: 0%;
+}
+
+#box4 {
+    float: left;
+    height: 531px;
+    margin-left: 1.426375%;
+    margin-top: 1%;
+    clear: both;
+    width: 97.040273%;
+    min-height: 50px;
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+

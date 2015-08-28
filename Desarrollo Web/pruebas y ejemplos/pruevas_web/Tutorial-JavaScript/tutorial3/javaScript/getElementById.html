@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script>
+//Este evento se ejecuta cuando la paguina es cargada por completo.
+window.onload = function(){
+	var box_1 = document.getElementById("box-1");
+	//alert(box_1.innerHTML);
+	box_1.innerHTML = "<strong> Cambiando el contenido del bax-1<strong>";
+
+	var box_2 = document.getElementById("box-2");
+	box_2.style.color = "orange";
+	//utilizamos metodos CSS, pero no se puede usar el - entonces, se renombra el metodo background-color
+	box_2.style.backgroundColor = "blue";
+	box_2.style.fontSize = "25px";
+
+	var campo = document.getElementById("campo");
+	//alert(campo.value);
+	campo.valer = "value cambiado";
+}
+</script>
+
+</head>
+<body>
+
+	<div id="box-1">Hola mundo </div>
+	<div id="box-2">Hola mundo 2</div>
+    <br><br>
+	campo de texto: <input type="text" id="campo" value="valor">
+</body>
+</html>

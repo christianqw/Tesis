@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    
+	 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+	<link type="text/css" href="jquery-ui.css" rel="stylesheet" > 
+	<script type="text/javascript" src="jquery-ui.js"></script>  
+	
+	
+	<title>Probando... 123</title>
+	
+	<style type="text/css">
+	    #contenedor_mundo{
+			overflow: scroll; 
+			background-image:url('images/granja.png');
+		}
+	</style>
+	
+	<!-- jQueryUI  drag and drop funtionality -->
+	<script src="js/jquery-ui_drag_and_drop.js"></script>
+	
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			//defino los elementos que se pueden arrastrar
+			$(".arrastrable").draggable({
+			stop: function() {
+			var pos = $(this).offset();
+				alert( "top" + pos.top + "  left" + pos.left );
+				}
+			});
+											
+			//defino elementos donde se puede soltar
+			$(".suelta").droppable();
+				
+			//enlaces para crear nuevos elementos mundo
+			$(".element-mundo").click(function(e){
+				//alert("XXXXX ----- XXXXXX");
+				e.preventDefault();
+				//var posx = aleatorio(10, 500);
+				///var posy = aleatorio(10, 600);                               //id con contador de los elementos soltados
+				var nuevoElemento = $('<div class="elemento_insertado"> <img class="arrastrable posisionable" id="asd" src="'+ $(this).attr("src") +'" class="image "/> </div>');
+				nuevoElemento.draggable();
+				$("#panel_mundo").append(nuevoElemento);
+				nuevoElemento.position({
+				of: $( "#panel_mundo" ),
+				my: "center ",
+				at: "center ",
+				collision: "none"
+				});
+				});
+		})
+		</script>
+  
+  </head>  
+  <body>
+    <h1>Probando el comportamiento droppable de jQueryUI</h1>
+	<button class="btn-element-mundo" id="">
+		<img id="icon_chancho" src="images/icon_chancho.png" class="image img-responsive element-mundo" />
+		</button>
+	<button class="btn-element-mundo" id="">
+		<img id="icon_gallina" src="images/icon_gallina.png" class="image img-responsive element-mundo" />
+		</button>
+	<button class="btn-element-mundo" id="">
+		<img id="icon_pato" src="images/icon_pato.png" class="image img-responsive element-mundo" />
+		</button>
+	<button class="btn-element-mundo" id="">
+		<img id="icon_vaca" src="images/icon_vaca.png" class="image img-responsive element-mundo" />
+		</button>
+	<div id="contenedor_mundo" class="contenedor suelta">
+			div with background
+	<!-- <figure class="" id="panel_mundo" >  Panel Mundo
+		<img src="images/granja.png" alt="granja">
+	</figure> -->
+	</div>
+	 
+  </body>
+</html>

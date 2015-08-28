@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <script>
+    //esperamos a que este cargado.
+    window.onload = function() {
+        var arr_campo = document.getElementsByName("campo");
+        //campo es en realidad un arreglo con todos los elementos de nombre campo
+        //el name puede no ser unico.
+        //alert(arr_campo.length);
+        arr_campo[0].style.height = "36px";
+
+        var btn_1 = document.getElementById("btn-1");
+        btn_1.onclick = function() {
+            alert(arr_campo[0].value);
+        }
+
+        var btn_2 = document.getElementById("btn-2");
+        btn_2.onclick = function() {
+            alert(arr_campo[1]); //es un objeto html. por lo que necesitas el .value
+            arr_campo[1].style.height = "36px";
+        }
+
+        var campo3 = document.formulario.campo3;
+        alert(campo3.value);
+        
+        /*
+	No funca por ID -- solo por el nombre
+	var campo3 = document.Form1.camp3;
+	alert(campo3.value);
+	*/
+    }
+    </script>
+
+</head>
+
+<body>
+
+    <form method="POST" name="formulario" id="Form1">
+        Campo de Texto 1
+        <input type="text" name="campo"> Campo de Texto 2
+        <input type="text" name="campo"> Campo de Texto 3
+        <input type="text" name="campo3" id="camp3" value="CAMPO-3">
+        <button type="button" id="btn-1">Obtener valor del campo 1</button>
+        <button type="button" id="btn-2">Obtener valor del campo 2</button>
+    </form>
+
+
+</body>
+
+</html>

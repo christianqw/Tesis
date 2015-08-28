@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Barra iconos</title>
+	<link rel="stylesheet" href="jQueryUI-1.11.2/jquery-ui.min.css">
+	<script src="jQueryUI-1.11.2/external/jquery/jquery.js"></script>
+	<script src="jQueryUI-1.11.2/jquery-ui.min.js"></script>
+
+	
+	<style type="text/css">
+	/*Definimos los estilos*/
+		 #barra_izq { float: left; width: 5%; min-height: 20em;  padding: 1%; }
+		.barra_izq li {width: 10px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+		.barra_izq li img { width: 30px;height :30px ; cursor: move; }
+		#board { float: right; width: 90%; min-height: 18em;  padding: 1%; }
+		#board h4 { line-height: 30px; margin: 0 0 0.4em; }
+
+	</style>
+
+	<script type="text/javascript">
+		$(function() {
+			var $barra_izq = $("#barra_izq"),
+				$pizarra = $("#board")
+			$("li", $barra_izq ).draggable({
+					//completar
+				helper: "clone",
+				revert: "invalid"
+			});
+			$pizarra.droppable({
+				accept:"#barra_izq li"
+				, drop: function( event, ui ) {
+					 agregarElemento(ui.draggable);
+				}
+			})
+
+			/*//Agregar un elemento en la pizarra.
+			function agregarElemento( $item ) {
+				$item.fadeOut(function() {
+					var $list = $( "ul", $pizarra ).length ?
+				$( "ul", $pizarra ) :
+				$( "<ul class='barra_izq ui-helper-reset'/>" ).appendTo( $pizarra );
+				$item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
+					$item
+					.animate({ width: "48px" })
+					.find( "img" )
+					.animate({ height: "36px" });
+					})
+				});
+			}*/
+		});
+
+	</script>
+
+</head>
+<body>
+
+</body>
+<div class="ui-widget ui-helper-clearfix">
+	<ul id="barra_izq" class="barra_izq ui-helper-reset ui-helper-clearfix">
+		<li class="icono_barra_izquierda">
+		<img src="imgs/chancho.svg" alt="nombre alternativo">
+		</li>
+		<li class="icono_barra_izquierda">
+		<img src="imgs/vaca.svg" width="30" height="30">
+		</li>
+		<li class="icono_barra_izquierda">
+		<img src="imgs/gallina.svg">
+		</li>
+		<li class="icono_barra_izquierda">
+		<img src="imgs/pato.svg">
+		</li>
+	</ul>
+		<div id="board" class="ui-widget-content"> 
+		<h4 class="ui-widget-header"></span> Pizarra</h4>
+		<p>Dop aquí!!</p>
+		</div>
+	</div>
+
+<div id="box"> MENSAJE </div>
+
+</html>

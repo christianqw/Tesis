@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script> 
+
+<script>
+$(function(){
+	$("#btn_mostrar").click(function(){
+		$("#mensaje").text("Mostrando Mensaje");
+
+	});
+
+	$("#btn_ocultar").click(function(){
+		$("#mensaje").text("");
+	});
+	/*
+	$("#btn_value").click(function(){//esto no anda
+		$("#mensaje").val("Modificando Val"); //El div no tiene val!!!
+	});
+	*/
+
+	$("#btn").mouseover(function(){
+		$(this).val("Estas pasando por el boton");
+	});
+
+	$("#btn").mouseout(function(){
+		$(this).val("Estas afuera");
+	});
+
+	$("#campo_1").focus(function(){
+		$("#resultado").html("El campo_1 tiene el foco");
+	})
+
+	$("#campo_1").blur(function(){
+		$("#resultado").html("El campo de Texto pierde el foco");
+	})
+
+});
+</script>
+</head>
+<body>
+
+<input type="button" id="btn_mostrar" value="Mostrar Mensaje">
+<input type="button" id="btn_ocultar" value="Ocultar Mensaje">
+<div id="mensaje"></div>
+
+<input type="button" id="btn" value="Pasando Sobre Mi">
+
+<input type="text" id="campo_1">
+<div id="resultado"></div>
+
+
+<input type="button" id="btn" value="Pasando Sobre Mi">
+
+<input type="button" id="btn_value" value="Tocando Value Mensaje">
+
+
+
+
+
+</body>
+</html>

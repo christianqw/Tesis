@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+    <!-- This code is only meant for previewing your Reflow design. -->
+
+    <head>
+	<link rel="stylesheet" href="styles_1.css"> <!-- Estilos de ubicacion de los elementos -->
+    <!--<link rel="stylesheet" href="boilerplate.css"> -->
+
+    <!-- librerias de jQuery y css de la visual de los elementos. -->
+    <link rel="stylesheet" href="jQueryUI-1.11.2/jquery-ui.min.css">
+    <script src="jQueryUI-1.11.2/external/jquery/jquery.js"></script>
+    <script src="jQueryUI-1.11.2/jquery-ui.min.js"></script>
+
+	<meta charset="utf-8">
+
+    <!-- Parametros iniciales de la ventana sobre la que se ejecuta (tam en px). -->
+	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0">
+    
+    </head>
+
+    <style type="text/css">
+        body { /*estilo del tamaño de la fuente*/
+            font-size: 0.7em;}
+
+        .ui-menu { /*que tan largas son las barras del menu*/
+              position: absolute; width: 150px; }
+
+        .class_menu{
+        }
+		
+		
+		 
+
+		
+        </style>
+
+    <script type="text/javascript">
+/*
+        $.mostrar_menu = function(opciones, elem){
+            var _opciones = $(opciones);
+            var _elem = $(elem);
+            var menu = _opciones.show().position({my: "left top", at: "left bottom", of: _elem});
+            $( document ).one( "click", function() {
+                menu.hide();
+            });
+            return false;
+        };
+*/
+    </script>
+
+    <script >
+        $(function() {
+            $(".class_menu").menu().hide();
+
+            $( "#btn_menu" ).click(function() {
+            var _menu = $("#menu_options").show().position({my: "left top", at: "left bottom", of: this});
+            $(document).mouseup(function() {
+                _menu.hide();
+            });
+            return false;
+            
+            }); 
+                
+            $( "#btn_modelo" ).click(function (){
+            var _menu = $("#modelo_options").show().position({my: "left top", at: "left bottom", of: this});
+            $(document).mouseup(function() {
+                _menu.hide();
+            });
+            return false;
+            });
+
+            $( "#btn_sentencias" ).click(function(){
+            var _menu = $("#sentencias_options").show().position({my: "left top", at: "left bottom", of: this});
+            $(document).mouseup(function() {
+                _menu.hide();
+            });
+            return false;
+            });
+             
+            $( "#btn_ayuda" ).click(function (){
+            var _menu = $( this ).parent().next().show().position({my: "left top", at: "left bottom", of: this});
+            $(document).mouseup(function() {
+                _menu.hide();
+            });
+            return false;
+            });
+
+            $( "#open").click(function(){
+                alert("Hiciste click en Open...");
+            });
+
+            $( "#btn_antes" ).button();
+            $( "#btn_despues" ).button();
+            $( "#btn_eliminar" ).button();
+        });
+
+    </script>
+
+
+    <body>
+
+    <div id="primaryContainer" class="primaryContainer clearfix ">
+        
+                <ul id="menu_options" class="class_menu">
+                <li id="open">Open...</li>
+                <li>Save</li>
+                <li>Delete</li>
+                </ul>
+                <ul id="modelo_options" class="class_menu">
+                <li>Nuevo Modelo</li>
+                <li>Abrir Modelo</li>
+                <li>Guardar Modelo</li>
+                </ul>   
+                <ul id="sentencias_options"  class="class_menu">
+                <li>Nueva Formula</li>
+                <li>Abrir Formula</li>
+                <li>Guardar Formula</li>
+                </ul>
+                <ul id="ayuda_options" class="class_menu">
+                <li>Sobre ...</li>
+                <li>Lista de Predicados</li>
+                <li>Lista de Atributos</li>
+                </ul>
+        </div>
+
+        <div id="box1" class="clearfix">
+        </div>
+        <div id="box2" class="clearfix">
+        </div>
+        <div id="box3" class="clearfix">
+        </div>
+        <div id="box4" class="clearfix">
+            <input id="btn_antes" type="button" value="Agregar Antes"></input>
+            <input id="btn_despues" type="button" value="Agregar Despues"></input>
+            <input id="btn_eliminar" type="button" value="Eliminar"></input>
+        </div>
+    </div>
+    </body>
+</html>

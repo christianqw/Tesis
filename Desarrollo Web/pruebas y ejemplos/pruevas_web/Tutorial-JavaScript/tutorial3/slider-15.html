@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script>
+var imagenes = ["http://arcanumdeepsecrets.files.wordpress.com/2010/06/blast_500x500.jpg",
+				"http://upload.wikimedia.org/wikipedia/en/c/cd/The-catalyst-single-cover-500x500.png",
+				"http://blog.unlessyouwill.com/wp-content/uploads/2012/11/48-bongo-500x500.jpg"
+				]
+
+var index = 0;
+
+/*Colocamos 3 imagenes en un arreglo,
+utilizando un temporizador y una variable contador
+mostramos la distintas imagenes cada 3 segundos.
+*/
+function slider(){
+	if (index>imagenes.length-1){
+		index = 0;
+	}
+	document.getElementById("imagen").src = imagenes[index];
+	index++;
+}
+
+temporizador = setInterval("slider()", 3000);
+
+function stop(){
+	clearInterval(temporizador);
+}
+
+function play(){
+	temporizador = setInterval("slider()", 3000);
+
+}
+</script>
+
+</head>
+<body>
+	<img src="" id="imagen">
+	<button type="button" onclick="stop()">stop</button>
+	<button type="button" onclick="play()">play</button>
+</body>
+</html>

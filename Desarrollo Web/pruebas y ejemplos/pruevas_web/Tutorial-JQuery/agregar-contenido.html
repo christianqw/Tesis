@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script>
+
+<script>
+$(function(){
+	//Id es unico por elemento.
+
+	$("#text").text("Hola MUNDO"); //Accedemos utilizando el Id
+	$("#html").html("<i> Texto en italica</i>");
+
+	$(".append").append(" Agrgado al Finla"); //Accedemos utilizando la Calse
+	$(".prepend").append(" Contenido al principio");
+
+	$("input[type='text']").val('Agregar Contenido');
+});
+</script>
+</head>
+<body>
+
+<div id="text"></div>
+<div id="html"></div>
+<div class = "append"> Tengo Contenido</div>
+<div class = "prepend"> Tengo Contenido</div>
+<input type="text">
+</body>
+</html>

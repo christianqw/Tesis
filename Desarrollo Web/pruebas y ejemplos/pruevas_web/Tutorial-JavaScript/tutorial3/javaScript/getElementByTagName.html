@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script>
+
+window.onload = function(){
+	var arr_div = document.getElementsByTagName("div");
+
+	alert(arr_div[0].innerHTML); //para obtener los valores del contenido
+
+	//alert(arr_div[0].value); //no posee valor definido.
+
+	arr_div[1].style.backgroundColor = "#000000";
+	arr_div[1].style.color = "#FFFFFF";
+	arr_div[1].style.margin = "20px";
+	arr_div[1].style.padding = "20px";
+
+	var div3 = arr_div[2];
+	div3.innerHTML = "<mark>Contenido cambiado</mark>";
+	
+	arr_div[0].innerHTML = "Contenido cambiado 2 - sin marcar";
+	
+}
+</script>
+
+</head>
+<body>
+	<div>contenido 1</div>
+	<div>contenido 2</div>
+	<div>contenido 3</div>
+</body>
+</html>

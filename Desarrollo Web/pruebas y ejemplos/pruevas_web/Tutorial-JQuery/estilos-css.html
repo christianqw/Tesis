@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script> 
+
+<style type="text/css">
+	.default{
+		color : grey;
+		font-size: 20px;
+	}
+
+	.activo{
+		color :orange ;
+		font-size: 25px;
+
+	}
+</style>
+
+<script>
+$(function(){
+	
+	$("#contenido_1").css({
+		"backgroundColor":"blue",
+		"fontStyle":"italic",
+		"color" : "white",
+		"fontSize" : "20px",
+		"padding" : "25px",
+		"border" : "5px solid red",
+		"borderRadius" : "5px"
+
+	});
+
+	$("#contenido_2").mouseover(function(){
+		$(this).removeClass("default");
+		$(this).addClass("activo");
+	});
+
+	$("#contenido_2").mouseout(function(){
+		$(this).removeClass("activo").addClass("default"); //concatena funciones. se ejecutan secuencialmente. 
+	});
+
+
+});
+</script>
+</head>
+<body>
+
+	<div id="contenido_1">
+El diseño web se basa en estándares. Sabemos reconocer un blog en cuando entramos en uno, una tienda online, una página corporativa o un medio de comunicación como un periódico.En general, estos estándares se basan en criterios de usabilidad y por retroalimentación o copia directa. 
+	</div>
+
+	<div id="contenido_2" class="default">
+Pasa como con el iPhone: Se encuentra un interfaz exitoso para interactuar con un producto e inmediatamente surgen productos que parecen cortados por el mismo patrón. 
+No son copias, pero son respuestas similares a una pregunta que el primero modelo ha hecho obvia.Este motivo es por eso por lo que casi cualquier e-commerce de ropa está a medio camino entre Zara y Asos, o por qué el 90% de e-commerces parecen haber sido cortados por el mismo patrón que cualquiera de las versiones que ha tenido Amazon en los últimos años.
+	</div>
+
+</body>
+</html>

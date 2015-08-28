@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+  <!-- Cosas de jQuery etc -->
+  <meta charset="utf-8">
+  <title>Maquetado</title>
+  <link rel="stylesheet" href="jQueryUI-1.11.2/jquery-ui.min.css">
+  <script src="jQueryUI-1.11.2/external/jquery/jquery.js"></script>
+  <script src="jQueryUI-1.11.2/jquery-ui.min.js"></script>
+
+  <!-- Definimos los Estilos de los elementos que intervienen -->
+
+  <style type="text/css">
+      .ui-menu { width: 150px; }
+
+      #area-imagen {
+        float: none;
+        display: inline-block;
+        width: 86.62250905797102%;
+        vertical-align: top;
+        margin-top: .32em;
+        margin-right: auto;
+        margin-left: .4%;
+        background-color: #a4e183;
+        min-height: 19.75em
+      }
+      #area-formulas {
+        float: none;
+        display: inline-block;
+        width: 78.15047554347827%;
+        vertical-align: top;
+        margin-top: .96em;
+        margin-right: auto;
+        margin-left: 3.8%;
+        background-color: #75e6e5;
+        min-height: 14.0009765625em
+      }
+       #barra-der {
+        float: none;
+        display: inline-block;
+        width: 15.094768137171648%;
+        vertical-align: top;
+        margin-top: .96em;
+        margin-right: auto;
+        margin-left: .36%;
+        background-color: #dbbe4d;
+        min-height: 14.0009765625em
+      }
+      #barra-menu {
+        float: none;
+        display: block;
+        width: 93.63394474637681%;
+        margin-top: .37em;
+        margin-right: auto;
+        margin-left: 3.7986865942028984%;
+        background-color: #ab79cc;
+        min-height: 2.619140625em
+      }
+      #barra-izq {
+        float: none;
+        display: inline-block;
+        width: 6.61231884057971%;
+        vertical-align: top;
+        margin-top: .318359375em;
+        margin-right: auto;
+        margin-left: 3.8%;
+        background-color: #e77;
+        min-height: 19.75em
+      }
+
+  </style>
+
+<script>
+$(function() {
+    //Le damos formato a los elementos 
+    $( "#menu" ).menu();
+    $( "#area-formulas" ).tabs();
+  });
+</script>
+
+
+</head>
+<body>
+<div id="barra-menu">
+    <!--<ul id="menu">
+      <li><span class="ui-icon ui-icon-disk"></span>Save</li>
+      <li><span class="ui-icon ui-icon-zoomin"></span>Zoom In</li>
+      <li><span class="ui-icon ui-icon-zoomout"></span>Zoom Out</li>
+      <li class="ui-state-disabled"><span class="ui-icon ui-icon-print"></span>Print...</li>
+      <li>
+        Playback
+        <ul>
+          <li><span class="ui-icon ui-icon-seek-start"></span>Prev</li>
+          <li><span class="ui-icon ui-icon-stop"></span>Stop</li>
+          <li><span class="ui-icon ui-icon-play"></span>Play</li>
+          <li><span class="ui-icon ui-icon-seek-end"></span>Next</li>
+        </ul>
+      </li>
+      <li>Learn more about this menu</li>
+</ul> --> Soy el menú
+</div>
+<div id="barra-izq"> Soy la Izq</div>
+<div id="barra-der"> Soy la der</div>
+<div id="area-imagen"> Soy la Ima</div>
+
+<div id="area-formulas">
+ <!-- <ul>
+    <li><a href="#tabs-1">Formulas</a></li>
+    <li><a href="#tabs-2">Otras formulas</a></li>
+    <li><a href="#tabs-3">Mas formulas</a></li>
+  </ul>
+  <div id="tabs-1">
+      <input type="text" id="tabs-1-f1" value ="">
+      <input type="text" id="tabs-1-f2" value ="">
+  </div>
+  <div id="tabs-2">
+         <input type="text" id="tabs-2-f1" value ="">
+  </div>
+  <div id="tabs-3">
+  </div>  --> Soy la form
+ </div>
+
+</body>
+</html>

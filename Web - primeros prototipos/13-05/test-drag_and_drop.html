@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap 101 Template</title>
+
+  </head>
+  <body>
+	<ul id="marco_elementos" class="list-inline ">
+	  <li><img id="icon_chancho" src="images/icon_chancho.png" class="image img-responsive element-mundo" /></li>
+	  <li><img id="icon_gallina" src="images/icon_gallina.png" class="image img-responsive element-mundo" /></li>
+	  <li><img id="icon_pato" src="images/icon_pato.png" class="image img-responsive element-mundo" /></li>
+	  <li><img id="icon_vaca" src="images/icon_vaca.png" class="image img-responsive element-mundo" /></li>
+	</ul>
+	<div class="thumbnail suelta " id="panel_mundo"> <!-- Panel Mundo-->
+			<img src="images/granja.png" alt="granja">
+			
+
+
+	<!-- jQueryUI -->
+	<script src="external/jquery/jquery.js"></script>
+	<script src="js/jquery-ui"></script>
+	
+	<!-- jQueryUI  drag and drop funtionality -->
+	<script src="js/jquery-ui_drag_and_drop.js"></script>
+	
+	<script>
+	
+	$(document).ready(function(){
+			//defino los elementos que se pueden arrastrar
+			$(".arrastrable").draggable();
+											// $(".arrastrable").data("soltado", false);
+											//voy a crear una variable para contar los elementos que estoy soltando
+											// $(".suelta").data("numsoltar", 0);
+			//defino elementos donde se puede soltar
+			$(".suelta").droppable();
+				
+			//enlaces para crear nuevos elementos mundo
+			$(".btn-element-mundo").click(function(e){
+				
+				alert("XXXXX ----- XXXXXX");
+			
+				e.preventDefault();
+				var posx = aleatorio(100, 800);
+				var posy = aleatorio(50, 500);                               //id con contador de los elementos soltados
+				var nuevoElemento = $('<div class="arrastrable " style="top: ' + posy + 'px; left: ' + posx + 
+										'px;"> <img id="asd" src="'+ $(this).attr("src") +' class="image "/>  </div>');
+				nuevoElemento.draggable();
+				$(panel_mundo).append(nuevoElemento);
+			});
+		})
+		</script>
+  
+  </body>
+</html>

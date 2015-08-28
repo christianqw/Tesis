@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<style type="text/css">
+	#contenedor,#contenedor-2{
+		width: 250px;
+		height: 300px;
+		background: green;
+		position: relative;
+	}
+</style>
+
+<script src="jQuery.js"></script> 
+
+<script>
+
+//Se puede pasar la funcion callback como parametro la cual puede realar una accion una vez termina de 
+//ejecutarse.
+
+//Para que la funcion afecte elementos del DOM tiene que comenzar con:
+$.fn.movimiento =function(options, callback){
+
+	var defaults = {
+		movimiento: 300,
+		velocidad: 1000 //un segundo.
+	};
+	$.extend(defaults, options); //si no se poseen opciones, se toman las que son por defecto.
+
+	if(callback === undefined ){
+		callback = function(){};
+	};
+
+	this.animate({left:"+="+defaults.movimiento}, defaults.velocidad)
+		.animate({left:"-="+defaults.movimiento}, defaults.velocidad , function() {
+			callback();
+		});
+
+};
+
+$(function(){
+	$("#contenedor").movimiento();
+	$("#contenedor-2").movimiento({movimiento:1000, velocidad:500}, alert("AnimacionTerminada"));
+
+
+});
+</script>
+</head>
+<body>
+
+<div id="contenedor"></div>
+<div id="contenedor-2"></div>
+
+</body>
+</html>

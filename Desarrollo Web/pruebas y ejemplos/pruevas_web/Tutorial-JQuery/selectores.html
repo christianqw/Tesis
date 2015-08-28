@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script>
+
+<script>
+$(function(){
+	$("#contenedor-1", "#contenedor-2", "#span").css({fontSize:"25px"});
+	//modificamos mas de un elemento en la misma linea.
+
+ 	//podemos acceder al primero o al ultimo elemento
+	$("#lista li:first-child").css({backgroundColor:"orange"});
+	$("#lista li:last-child").css({backgroundColor:"green"});
+
+	//accedemos por el indice. (arranca en "cero")
+	$("#lista li:eq(1)").css({backgroundColor:"red"});
+
+	//Buscamos Elementos dentro de otro elemento
+	$("#lista-2").find("li").css({backgroundColor:"blue"});
+	$("#lista-2").find("clase").css({fontSize:"35px"});
+
+	//http://jquery-manual.blogspot.com.ar/2013/04/los-selectores-en-jquery.html
+});
+</script>
+</head>
+<body>
+
+<div id="contenedor-1">Este es el C1</div>
+<div id="contenedor-2">Este es el c2</div>
+<span id="span-1">Este es el S1</span>
+
+<ul id="lista">
+<li>uno</li> 
+<li>uno</li>
+<li>uno</li>
+<li>uno</li>
+<li>uno</li>
+</ul>
+
+<ul id="lista-2">
+<li>dos</li> 
+<li class="clase">cuatro</li>
+<li>uno</li>
+<li>54</li>
+<li>dos</li>
+</ul>
+</body>
+</html>

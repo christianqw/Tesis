@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script src="jQuery.js"></script> 
+
+<script>
+$(function(){
+	$("#btn_texto").on("click", function(){
+		var texto = $("#contenedor").text();
+		alert (texto);
+	});
+
+	$("#btn_html").on("click", function(){
+		var html = $("#contenedor").html();
+		alert(html);
+	});
+
+	$("#btn_value").on("click", function(){
+		var val = $("#campo").val();
+		alert(val);
+	});
+
+});
+</script>
+</head>
+<body>
+
+<div id="contenedor">
+<strong>Contenido del contenedor</strong>
+</div>
+
+<button type="button" id="btn_texto">Obtener el contenido</button>
+<button type="button" id="btn_html">Obtener el html contenido</button>
+
+Campo de Texto: <input type="text" id="campo" value ="">
+
+<button type="button" id="btn_value">Obtener el valor del campo de texto</button>
+</body>
+</html>

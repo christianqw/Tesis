@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<script>
+    var validar = function(){
+        var nombre = document.formulario.nombre;
+        if (nombre.value == ""){
+            document.getElementById("e_nombre").innerHTML = "El campo nombre tiene que ser completado";
+            return;
+        }else if(nombre.value.length < 3 || nombre.value.length >25){
+            document.getElementById("e_nombre").innerHTML = "tamaño malo de nombre";
+            return;
+            }else if(!nombre.value.match(/^[a-z]+$/i)){
+                document.getElementById("e_nombre").innerHTML = "solo letras!!!";
+                return;
+                }else
+                document.getElementById("e_nombre").innerHTML = "";
+
+        var email = document.formulario.email;
+        if (email.value == ""){
+            document.getElementById("e_email").innnerHTML = "Email es obligatorio";
+            return;
+        }else if(email.value < 6){
+            document.getElementById("e_email").innnerHTML = "Email tiene que ser > 6";
+            return;
+            }else{
+                document.getElementById("e_email").innerHTML = "";
+            }
+
+        //lo mismo los otros campos
+    }
+
+    window.onload = function(){
+        var btn = document.getElementById("btn")
+        btn.onclick = function() {
+            validar();
+        }
+    }
+
+
+</script>
+<body>
+
+<h1>Validar Formulario</h1>
+<form method="post" name="formulario">
+    Nombre: <input type="text" name="nombre" placeholder="Introduce tu nombre"><samp id="e_nombre"></samp> <br>
+    Email: <input type="email" name="email" placeholder="Introduce tu email"><samp id="e_email"></samp><br>
+    Password: <input type="password" name="password"> <samp id="e_password"></samp><br>
+    Repetir Pasword: <input type="password" name="repetir_password"><br>
+    <button type="button" id="btn">Enviar</button>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC >
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+       <!-- Documento HTML con carácteres UTF8 -->
+       <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
+       <title>Calculadora AJAX</title>
+
+       <!-- Clases CSS internas -->
+	   <style type="text/css">
+	   .mensaje                                      /* Mensaje de error */
+		 {
+			   width: 100%;                            /* Ancho */
+			   margin-top: 20px;                       /* Margen superior */
+			   margin-bottom: 30px;                    /* Margen inferior */
+			   color: #ff0e0e;                         /* Color del texto (foreground) */
+			   font-size: 12px;                        /* Tamaño de la fuente */
+		 }
+		  .content-box-blue {
+      margin: 0 0 25px;
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      background-color: #d8ecf7;
+      border: 1px solid #afcde3;
+      }
+
+      </style>
+       <!-- Referencias a Javascripts externos -->
+
+       <!-- Codigo Javascript interno -->
+
+      <!-- Latest compiled and minified jquery -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	    <script type='text/javascript'>
+		/* codigo a ejecutarse tan pronto como la
+		   pagina ha sido cargada por el navegador */
+
+		$(document).ready(function (){
+
+      $("#btn_ejecutar").on('click', function(e) {
+        //var datos_contenedor = $('#contenedor').serialize();
+        //$('#mostrar_resultado').html('<img src="362.gif">');
+        //alert(datos_contenedor.toString()); //nada
+        //alert($('#contenedor_formulas :input').serializeArray().toString()); //nada
+        //$('#resultados').text(JSON.stringify($('#contenedor_formulas :input').serializeArray().toString())); //nada
+        var datos_form = $(".renglon").serializeArray();
+        alert(datos_form);
+        alert(datos_form.tostring());
+
+      });
+          /*
+          $ajax({
+              type: 'POST',									                  // Metodo utilizado para el requerimiento
+              //ejemplo con calcular.php
+              url: "localhost:8080/webeditor/spring/json/",   // URL a invocar asincronamente
+              data: datos_contenedor,					        // Informacion local a enviarse con el requerimiento
+              dataType: "json"
+            }).done(function(dotos_return){
+                //trabajamos con lo que nos retorna
+                })
+
+          */
+		});
+
+
+</script>
+	</head>
+    <body>
+
+	  <div id="contenedor">
+      <div class="content-box-blue">
+        <img class="elemento_insertado arrastrable ui-draggable ui-draggable-handle" id="e1" src="icon_pato.png" style="position: absolute; left:50px; top: 50px;">
+        <img class="elemento_insertado arrastrable ui-draggable ui-draggable-handle" id="e2" src="icon_chancho.png" style="position: absolute; left:20px; top: 20px;">
+      </div>  <!-- la caja en realidad mide 100 x 100 -->
+    </div>
+
+    <div id="mostrar_resultado" class="Resultados">
+    <h2>Mostramos los resultados a continuacion: </h2>
+    <p id="s ">
+      .
+      .
+    </p>
+    </div>
+
+    <div class="contenedor_formulas">
+      <div class="renglon col-xs-4">
+        <input type="text" id="_form1" class="input-sentence form-control has-success" name="_form1" value="mensaje 1">
+        <span class="mensaje"> No verificado </span>
+      </div>
+      <div class="renglon col-xs-4"> <!-- sin el campo value, con placeholder -->
+        <input type="text" id="_form2" class="input-sentence form-control has-success" placeholder="Campo de texto" name="_form2">
+        <span class="mensaje"> No verificado  </span>
+      </div>
+    </div>
+
+    <div class="botonera">
+       <input type="button" id="btn_ejecutar" value="ejecutar"/>
+    </div>
+
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plantilla básica de Bootstrap</title>
+     <!-- CSS de Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<?php 
+		$idioma=substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2); 
+		include("lang/".$idioma.".php"); //si los archivos estan dentro de ./lang ?>
+  </head>
+  <body>	 
+    <h1>Mi ejemplo con Php</h1> 
+	<h1>el idioma detectado es <?php echo $idioma; ?></h1>
+	<?php echo $idioma_nombre; ?>
+  </body>
+</html>
