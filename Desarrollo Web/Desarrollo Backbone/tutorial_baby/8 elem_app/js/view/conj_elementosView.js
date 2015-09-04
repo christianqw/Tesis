@@ -41,18 +41,20 @@ var app = app || {};
             });
             this.$el.append(elementoView.render().el); //agrega al final
         },
+				/* Alternativa del codigo, realiza lo mismo.
+				renderElemento : function (item){
+				var el = new app.ElementoView({model:item}).render.el;
+				this.$el.append(el);
+				},
+				*/
+
 
         addNewElemento: function(){
           alert("agregar elemento  - conj ");
-//           var formData = { nombre:"form_11" }; //agregar manejo contador
-//           var_sentencias.push(formData);
-                                                     //formData
-
             /*
             var privada con contador - id del name
             cargar animal y atributos del formulario seleccionados.
             */
-
             app.elemento_collention.add(new app.Elemento());
         },
 

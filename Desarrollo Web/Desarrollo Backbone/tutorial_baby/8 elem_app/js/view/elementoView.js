@@ -9,21 +9,24 @@ var app = app || {};
     app.ElementoView = Backbone.View.extend({
 
         tagName:"div",
-        className:"elemento_insertado arrastrable ui-draggable ui-draggable-handle ",
+        className:"arrastrable ui-draggable ui-draggable-handle ",
         template:$("#Elemento_Template").html(),
 
-        events{
-          'stop .draggable': 'edit_position_model'
+        events:{
+          'click .elemento_insertado': 'element_focus',
+          //no andan!!
+          //"dragstop .draggable": "edit_position_model"
+          //'stop .elemento_insertado': 'edit_position_model'
         },
 
         initialize:function(){
-
 					// $(this.el)
 				},
 
-        edit_position_model: function( a, b){
-          this.model.stop_drop(ui.position.left, ui.position.top);
-        }
+        element_focus: function(){
+          alert("focus en " + this.model.get("nombre"));
+          this.$el.addClass('element_editing_focus');
+        },
 
         render:function () {
           //tmpl is a function that takes a JSON object and returns html
@@ -35,9 +38,9 @@ var app = app || {};
           //this.$el.attr("id",this.model.get("nombre"));
           this.$el.draggable({
                   stop: function( event, ui ) {
-                  alert("left: " + ui.position.left+ " top: " + ui.position.top )
-                  //this.model.stop_drop(ui.position.left, ui.position.top);
-                  }
+                  alert("left: " + ui.position.left+ " top: " + ui.position.top );
+                  modelo.stop_drop(ui.position.left, ui.position.top);
+                }
           });
           return this;
         }

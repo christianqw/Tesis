@@ -22,6 +22,7 @@ var app = app || {};
 
         render: function(){
           this.$el.append(app.list_sentenciasView.render().el);
+					this.$el.append(app.conj_elementosView.render().el);
           return this;
         },
 
