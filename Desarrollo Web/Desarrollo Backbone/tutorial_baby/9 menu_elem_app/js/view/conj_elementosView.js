@@ -8,9 +8,10 @@ var app = app || {};
 	// --------------
     app.Conj_ElementosView = Backbone.View.extend({
         el:$("#panel_mundo1"),  //insertamos los elementos en este componente
+
 				var_num_name: 1,
 
-				events:{
+        events:{
           "click #asd" :"mensaje2"
         },
 

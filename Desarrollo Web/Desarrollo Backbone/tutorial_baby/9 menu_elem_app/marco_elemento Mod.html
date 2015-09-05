@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>App Logic World</title>
+
+    <!-- strart:CSS -->
+    <link type="text/css" href="css/jquery-ui.css" rel="stylesheet" >                            <!-- jQueryUI -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">   <!-- Bootstrap Theme-->
+    <!--"Styles" Personal configuration <link href="css/personalizado.css" rel="stylesheet"> -->
+    <link href="css/styles.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- end:CSS -->
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script>
+	  $(function() {
+		$( "#marco_elementos" ).tabs();
+	  });
+	 </script>
+
+  </head>
+  <body>
+
+    <div id="app_container" class="container-fluid">
+      <div class="row">
+        <!-- Panel Modelo-->
+        <div class="col-md-6">
+          <!-- Herramientas Modelo-->
+          <div id="marco_elementos" class="thumbnail">
+			  <ul>
+				<li><a href="#tabs-1"> <img id="icon_chancho" src="images/icon_chancho.png" class="image img-responsive elemento_mundo" /></a></li>
+				<li><a href="#tabs-1"> <img id="icon_gallina" src="images/icon_gallina.png" class="image img-responsive elemento_mundo" /></a></li>
+				<li><a href="#tabs-1"> <img id="icon_pato" src="images/icon_pato.png" class="image img-responsive elemento_mundo" /></a></li>
+				<li><a href="#tabs-1"> <img id="icon_vaca" src="images/icon_vaca.png" class="image img-responsive elemento_mundo" /></a></li>
+				<div style="float: right">
+					<button id="add_element" type="button" class="btn btn-default btn-block">Agregar
+					</button>
+					<button id="edit_element" type="button" class="btn btn-default btn-block">Editar
+					</button>
+				</div>
+			  </ul>
+			  <div id="tabs-1">
+				<ul id="lista_atributos" class="nav nav-pills nav-atributo">
+                  <li>
+                    <select id="tamaño" class="atributo form-control">
+                      <option>Chico</option>
+                      <option>Mediano</option>
+                      <option>Grande</option>
+                    </select>
+                  </li>
+                  <li>
+                    <select id="dormido" class="atributo form-control">
+                      <option>Despierto</option>
+                      <option>Dormido</option>
+                    </select>
+                  </li>
+                </ul>
+			  </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- start:js -->
+     
+
+      <script type="text/javascript" src="js/models/sentencia.js"></script>
+      <script type="text/javascript" src="js/models/elemento.js"></script>
+      <script type="text/javascript" src="js/collections/list_sentencias.js"></script>
+      <script type="text/javascript" src="js/collections/conj_elementos.js"></script>
+      <script type="text/javascript" src="js/view/sentenciaView.js"></script>
+      <script type="text/javascript" src="js/view/list_sentenciasView.js"></script>
+      <script type="text/javascript" src="js/view/elementoView.js"></script>
+      <script type="text/javascript" src="js/view/conj_elementosView.js"></script>
+      <script type="text/javascript" src="js/view/appView.js"></script>
+      <script type="text/javascript" src="js/app.js"></script>               <!-- Bootstrap's JavaScript plugin -->
+
+      <!-- Personalizados
+    	<script type="text/javascript" src="js/actions_buttons.js"></script>
+    	<script src="js/jquery-ui_DandD.js"></script> -->
+    <!-- end:js -->
+
+  </body>
+
+</html>

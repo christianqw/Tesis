@@ -82,40 +82,34 @@
         <div class="col-md-6">
           <!-- Herramientas Modelo-->
           <div id="marco_elementos" class="thumbnail">
-              <ul id="lista_elementos"class="list-inline">
-                <li>
-                  <button id = "id_btn_icon_chancho" type="button"  class="btn btn-default "> <img id="icon_chancho" src="images/icon_chancho.png" class="image img-responsive elemento_mundo" /></button>
-                </li>
-                <li>
-                  <button type="button" class="btn btn-default "> <img id="icon_gallina" src="images/icon_gallina.png" class="image img-responsive elemento_mundo" /></button>
-                </li>
-                <li>
-                <button type="button" class="btn btn-default "> <img id="icon_pato" src="images/icon_pato.png" class="image img-responsive elemento_mundo" /></button>
-                </li>
-                <li>
-                  <button type="button" class="btn btn-default "> <img id="icon_vaca" src="images/icon_vaca.png" class="image img-responsive elemento_mundo" /></button>
-                </li>
-              </ul>
-              <hr id="linea">
-              <ul id="lista_atributos" class="nav nav-pills nav-atributo">
+			      <ul>
+        				<li><a href="#tabs-1"> <img id="icon_chancho" src="images/icon_chancho.png" class="image img-responsive elemento_mundo" /></a></li>
+        				<li><a href="#tabs-1"> <img id="icon_gallina" src="images/icon_gallina.png" class="image img-responsive elemento_mundo" /></a></li>
+        				<li><a href="#tabs-1"> <img id="icon_pato" src="images/icon_pato.png" class="image img-responsive elemento_mundo" /></a></li>
+        				<li><a href="#tabs-1"> <img id="icon_vaca" src="images/icon_vaca.png" class="image img-responsive elemento_mundo" /></a></li>
+				        <div style="float: right">
+					        <button id="add_element" type="button" class="btn btn-default btn_addedit_elem btn-block">Agregar</button>
+					        <button id="edit_element" type="button" class="btn btn-default btn_addedit_elem btn-block">Editar</button>
+				        </div>
+			      </ul>
+			      <div id="tabs-1">
+				        <ul id="lista_atributos" class="nav nav-pills nav-atributo">
                   <li>
                     <select id="tamaño" class="atributo form-control">
-                      <option>Chico</option>
-                      <option>Mediano</option>
-                      <option>Grande</option>
+                      <option>Chico</option><option>Mediano</option><option>Grande</option>
                     </select>
                   </li>
                   <li>
                     <select id="dormido" class="atributo form-control">
-                      <option>Despierto</option>
-                      <option>Dormido</option>
+                      <option>Despierto</option><option>Dormido</option>
                     </select>
                   </li>
                 </ul>
+			      </div>
           </div>
 
           <!-- Contenedor Modelo-->
-          <div id="panel_mundo1" class="contenedor_modelo">  <!-- thumbnail (antes autoajustado)-->
+          <div id="panel_mundo1" class="contenedor_modelo suelta ">  <!-- thumbnail (antes autoajustado)-->
 			         <img id="imagen_fondo" src="images/granja.png" alt="granja">
 
                <script id="Elemento_Template" type="text/template">

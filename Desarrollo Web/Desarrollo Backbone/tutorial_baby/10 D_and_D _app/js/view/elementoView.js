@@ -9,7 +9,7 @@ var app = app || {};
     app.ElementoView = Backbone.View.extend({
 
         tagName:"div",
-        className:"arrastrable",
+        className:"draggable",
         template:$("#Elemento_Template").html(),
 
         events:{
@@ -33,15 +33,13 @@ var app = app || {};
           var tmpl = _.template(this.template);
           //this.el is what we defined in tagName. use $el to get access to jQuery html() function
           this.$el.html(tmpl(this.model.toJSON()));
-          var modelo = this.model;
-
-          //this.$el.attr("id",this.model.get("nombre"));
+          var that = this.model;
           this.$el.draggable({
                   stop: function( event, ui ) {
                   alert("left: " + ui.position.left+ " top: " + ui.position.top );
-                  modelo.stop_drop(ui.position.left, ui.position.top);
+                  that.stop_drop(ui.position.left, ui.position.top);
                 }
-          }).css("position", "absolute");
+          }).css({position:"absolute", top:0, left:0})
           return this;
         }
     });

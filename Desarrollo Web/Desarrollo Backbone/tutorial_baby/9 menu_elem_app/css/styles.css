@@ -5,9 +5,8 @@
 #lista_elementos{
 	  margin-bottom: 0;
 }
-
 .arrastrable{
-	position: absolute;
+  position: absolute;
   top: 0px;
   left: 0px;
   }
@@ -38,6 +37,14 @@
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	padding: 9px;
+}
+
+.btn_addedit_elem{
+	  padding: 1px 12px;
+}
+
+#tabs-1{
+	padding: 8px 10px 2px;
 }
 
 #imagen_fondo{

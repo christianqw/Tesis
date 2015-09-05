@@ -9,7 +9,7 @@ var app = app || {};
     app.ElementoView = Backbone.View.extend({
 
         tagName:"div",
-        className:"arrastrable",
+        className:"arrastrable ui-draggable ui-draggable-handle",
         template:$("#Elemento_Template").html(),
 
         events:{
@@ -41,7 +41,7 @@ var app = app || {};
                   alert("left: " + ui.position.left+ " top: " + ui.position.top );
                   modelo.stop_drop(ui.position.left, ui.position.top);
                 }
-          }).css("position", "absolute");
+          });
           return this;
         }
     });
